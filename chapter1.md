@@ -67,8 +67,7 @@ assignment is '=' sign in python (:= in newest versions)
 
 `@sample_code`
 ```{python}
-b = 12
-c = b + 1
+# none
 ```
 
 `@solution`
