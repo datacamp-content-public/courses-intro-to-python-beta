@@ -41,3 +41,43 @@ This is an example exercise.
 ```{python}
 
 ```
+
+---
+
+## Test Exercise
+
+```yaml
+type: NormalExercise
+key: 4713f35526
+xp: 100
+```
+
+Testing exercise in order to see if it is working
+
+`@instructions`
+Create a variable a and assign value 30 to it
+
+`@hint`
+assignment is '=' sign in python (:= in newest versions)
+
+`@pre_exercise_code`
+```{python}
+# create a variable a
+```
+
+`@sample_code`
+```{python}
+b = 12
+c = b + 1
+```
+
+`@solution`
+```{python}
+a = 0
+```
+
+`@sct`
+```{python}
+Ex().check_object("a").has_equal_value(30, incorrect_msg = 'Did you create a variable?')
+succes_msg = 'Have you created a variable correctly?'
+```
