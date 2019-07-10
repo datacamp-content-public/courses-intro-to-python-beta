@@ -73,7 +73,7 @@ c = b + 1
 
 `@solution`
 ```{python}
-a = 0
+a = 30
 ```
 
 `@sct`
