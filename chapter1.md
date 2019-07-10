@@ -77,6 +77,6 @@ a = 30
 
 `@sct`
 ```{python}
-Ex().check_object("a").has_equal_value(30, incorrect_msg = "Foo")
+Ex().check_object("a").has_equal_value(incorrect_msg = "Foo")
 success_msg('Have you created a variable correctly?')
 ```
