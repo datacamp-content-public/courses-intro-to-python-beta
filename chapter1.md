@@ -90,13 +90,8 @@ Another method for finding square root is to increase the number to the power of
 ```{python}
 x = 5
 y = 4
-#+	Add two operands or unary plus	x + y
-#-	Subtract right operand from the left or unary minus	x - y
-#*	Multiply two operands	x * y
-#/	Divide left operand by the right one (always results into float)	x / y
-#%	Modulus - remainder of the division of left operand by the right	x % y (remainder of x/y)
-#//	Floor division - division that results into whole number adjusted to the left in the number line	x // y
-#**	Exponent - left operand raised to the power of right	x**y (x to the power y)
+#+	Add two operands or unary plus	x + y, - Subtract right operand from the left or unary minus	x - y
+#*	Multiply two operands	x * y, / **	Exponent - left operand raised to the power of right	x**y (x to the power y)
 #[DIY]
 #`x` to the power of 4
 print()
