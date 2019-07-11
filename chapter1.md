@@ -49,16 +49,6 @@ text supposed to be a one line comment
 
 `@solution`
 ```{python}
-#some comment which will be ignored by interpreter
-
-"""
-Multi
-line
- comment
-  that
-   is
-ignored
-"""
 #text supposed to be a one line comment
 ```
 
