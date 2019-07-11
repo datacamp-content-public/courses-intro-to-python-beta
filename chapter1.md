@@ -14,7 +14,7 @@ xp: 100
 skills: 2
 ```
 
-Welcome to the short introductory tutorial for Python. Here is how this tutorial works.
+Welcome to the short introductory tutorial for Python. Here is how this tutorial works: 
 In the editor on the right you should be able to write Python code to solve the exercises.
 In order to make your code more understandable to yourself and other people reading it, you can use comments. `#` symbol indicates the start of a line of comment.
 There will be some code in exercises for the reference. For the parts that must be filled by you, you will see `[DIY]` above them.
@@ -60,7 +60,7 @@ success_msg("Good job! On to the next exercise")
 
 ---
 
-## Test Exercise
+## Simple arithmetics
 
 ```yaml
 type: NormalExercise
@@ -68,31 +68,63 @@ key: 4713f35526
 xp: 100
 ```
 
-Testing exercise in order to see if it is working
+Arithmetic operations in Python are pretty much the same as in other mathematical tools and have the same meaning
 
 `@instructions`
-Create a variable a and assign value 30 to it
+With given `x` and `y`, `print()` the followings:
+1. `x` to the power of 4
+2. Add 5 to `y`
+3. Subtract 10 from `x`
+4. Square root of `y`
+5. Find the difference between `x` and `y`
 
 `@hint`
-assignment is '=' sign in python (:= in newest versions)
+Another method for finding square root is to increase the number to the power of 1/2
 
 `@pre_exercise_code`
 ```{python}
-# create a variable a
+
 ```
 
 `@sample_code`
 ```{python}
-# none
+x = 5
+y = 4
+
+#[DIY]
+#`x` to the power of 4
+print()
+#Add 5 to `y`
+print()
+#Subtract 10 from `x`
+print()
+#Square root of `y`
+print()
+#Find the difference between `x` and `y`
+print()
 ```
 
 `@solution`
 ```{python}
-a = 30
+# x ** 4
+625
+# y + 5
+9
+# x - 10
+-5
+# y ** 1/2
+2.0
+# x - y
+1
+
 ```
 
 `@sct`
 ```{python}
-Ex().check_object("a").has_equal_value(incorrect_msg = "Foo")
-success_msg('Have you created a variable correctly?')
+Ex().has_output("625")
+Ex().has_output("9")
+Ex().has_output("-5")
+Ex().has_output("2.0")
+Ex().has_output("1")
+success_msg('Good job! Next to the other exercise!')
 ```
