@@ -24,7 +24,7 @@ You can execute your code by clicking `Execute` button. If you are pleased with 
 Make the text you see a one line comment
 
 `@hint`
-There are no hints at this point
+Put `#` at the beginning of a line to comment it out
 
 `@pre_exercise_code`
 ```{python}
