@@ -95,13 +95,7 @@ y = 4
 #[DIY]
 #`x` to the power of 4
 print()
-#Add 5 to `y`
 print()
-#Subtract 10 from `x`
-print()
-#Square root of `y`
-print()
-#Find the difference between `x` and `y`
 print()
 ```
 
