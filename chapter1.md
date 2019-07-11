@@ -17,7 +17,7 @@ skills: 2
 Welcome to the short introductory tutorial for Python. Here is how this tutorial works.
 In the editor on the right you should be able to write Python code to solve the exercises.
 In order to make your code more understandable to yourself and other people reading it, you can use comments. `#` symbol indicates the start of a line of comment.
-There will be some code in exercises for the reference. For the parts that must be filled by you, you will see [DIY] above them.
+There will be some code in exercises for the reference. For the parts that must be filled by you, you will see `[DIY]` above them.
 You can execute your code by clicking `Execute` button. If you are pleased with results, you can submit your code via `Submit` button.
 
 `@instructions`
