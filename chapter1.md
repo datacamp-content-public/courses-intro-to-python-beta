@@ -19,7 +19,6 @@ This is an example exercise.
 `@instructions`
 There are no instructions at this point.
 
-
 `@hint`
 
 
