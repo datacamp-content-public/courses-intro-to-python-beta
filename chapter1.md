@@ -43,6 +43,7 @@ line
    is
 ignored
 """
+# [DIY]
 text supposed to be a one line comment
 ```
 
