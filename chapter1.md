@@ -204,7 +204,7 @@ Check the 3rd exercise
 
 ---
 
-## Variables
+## Data types 1
 
 ```yaml
 type: NormalExercise
