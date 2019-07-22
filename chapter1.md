@@ -158,9 +158,14 @@ x = 3
 
 `@solution`
 ```{python}
+# [DIY] Define a variable y and assign value 5 to it
 y = 5
+# [DIY] Define a variable z which is the sum of x and y
 z = x + y
+# [DIY] Print the variable z to the console
 print(z)
+
+
 ```
 
 `@sct`
