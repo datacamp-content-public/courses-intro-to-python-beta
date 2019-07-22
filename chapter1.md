@@ -92,16 +92,36 @@ x = 5
 y = 4
 #+	Add two operands or unary plus	x + y, - Subtract right operand from the left or unary minus	x - y
 #*	Multiply two operands	x * y, **	Exponent - left operand raised to the power of right	x**y (x to the power y)
-#[DIY]
+
+#[DIY] `x` to the power of 4
+print()
+#[DIY] Add 5 to `y`
+print()
+#[DIY] Subtract 10 from `x`
+print()
+#[DIY] Square root of `y`
+print()
+#[DIY] Find the difference between `x` and `y`
+print()
 ```
 
 `@solution`
 ```{python}
-625
-9
--5
-2.0
-1
+x = 5
+y = 4
+#+	Add two operands or unary plus	x + y, - Subtract right operand from the left or unary minus	x - y
+#*	Multiply two operands	x * y, **	Exponent - left operand raised to the power of right	x**y (x to the power y)
+
+#[DIY] `x` to the power of 4
+print(x ** 4)
+#[DIY] Add 5 to `y`
+print(y + 5)
+#[DIY] Subtract 10 from `x`
+print(x - 10)
+#[DIY] Square root of `y`
+print(y ** 1/2)
+#[DIY] Find the difference between `x` and `y`
+print(x - y)
 ```
 
 `@sct`
