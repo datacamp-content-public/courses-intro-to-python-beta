@@ -212,7 +212,7 @@ key: 7845e5f574
 xp: 100
 ```
 
-Data types
+Data types 1
 There are three most common data types in Python.
 
 numerics (`int`, `float`) - these are values like 3 and 4.123. Bear in mind that, Python does treat 3 and 4.123 differently, because 3 is type of `int` - integer, whereas 4.123 is type of `float` - floating point number
