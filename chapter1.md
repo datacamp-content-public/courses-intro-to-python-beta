@@ -279,3 +279,112 @@ Ex().check_object("z").has_equal_value()
 Ex().has_output("<class 'float'>")
 success_msg("Good Job!")
 ```
+
+---
+
+## Data types 2
+
+```yaml
+type: NormalExercise
+key: 790974df1e
+xp: 100
+```
+
+Apart from simple data types, Python also has some complex data types which serve as "containers" for simple data types. They are:
+1. Lists
+2. Tuples
+3. Dictionaries
+
+Lists are like vectors in R, or arrays in other languages. A list is a collection which is **ordered** and **changeable**. In Python lists are written with squared brackets.`[]`. They can contain elements of different types.
+```
+a = [1, 2.0, "Python", True]
+```
+Tuples are like lists, but they are **unchangeable**. They start and end with round brackets, `()`. They can also contain elements of different types
+```
+b = (1, 2.0, "Python", True)
+```
+Dictionary is a collection of keys and values which are **unordered**, and **changeable**. Dictionaries start and end with curly brackets, `{}`. They can also contain elements of different types, **but there keys are always strings**
+```
+c = {"a": 1, "2": "Python", "c": True}
+```
+In order to retrieve and element from lists and tuples, their index number is used in square brackets. For dictionaries, key is used. Python is zero indexed language, e.g indexes start at zero. So, the first element of `a` can be retrieved via `a[0]` **not** `a[1]`
+```
+a[0]
+b[0]
+c["a"]
+```
+
+`@instructions`
+1. Create a list `a` which contains an integer, boolean and a string in this order
+2. Create a tuple `b` which contains 3 integers
+3. Create a dictionary `c` with two key-value pairs
+4. Print the type of the 2nd element of `a`
+5. Print the type of first element of `b`
+
+`@hint`
+- Python is zero indexed language
+- For indexing, squared brackets are used
+
+`@pre_exercise_code`
+```{python}
+def sanity_check_list(obj):
+  return type(obj) == list and len(obj) == 3 and type(obj[0]) == int and type(obj[1]) == bool and type(obj[2]) == str
+
+def sanity_check_tuple(obj):
+  return type(obj) == tuple and len(obj) == 3 and type(obj[0]) == int and type(obj[1]) == int and type(obj[2]) == int
+
+def sanity_check_dict(obj):
+  return type(obj) == dict and len(obj) == 2
+```
+
+`@sample_code`
+```{python}
+# [DIY] Create a list `a` which contains an integer, boolean and a string in this order
+
+# [DIY] Create a tuple `b` which contains 3 integers
+
+# [DIY] Create a dictionary `c` with two key-value pairs
+
+
+# Sanity check. Do not edit these lines
+sanity_check_list(a)
+sanity_check_tuple(b)
+sanity_check_dict(c)
+
+# [DIY] Print the type of the 2nd element of `a`
+
+# [DIY] Print the type of first element of `b`
+
+```
+
+`@solution`
+```{python}
+# [DIY] Create a list `a` which contains an integer, boolean and a string in this order
+a = [2, True, "A"]
+# [DIY] Create a tuple `b` which contains 3 integers
+b = (1, 2, 3)
+# [DIY] Create a dictionary `c` with two key-value pairs
+c = {"key1": 1, "key2": 2}
+
+# Sanity check. Do not edit these lines. If these functions fail, check the variable definitions
+sanity_check_list(a)
+sanity_check_tuple(b)
+sanity_check_dict(c)
+
+
+# [DIY] Print the type of the 2nd element of `a`
+print(type(a[1]))
+# [DIY] Print the type of first element of `b`
+print(type(b[0]))
+
+```
+
+`@sct`
+```{python}
+Ex().check_function("sanity_check_list").has_equal_value()
+Ex().check_function("sanity_check_tuple").has_equal_value()
+Ex().check_function("sanity_check_dict").has_equal_value()
+Ex().has_equal_output("<class 'bool'>")
+Ex().has_equal_output("<class 'int'>")
+
+```
