@@ -113,3 +113,61 @@ Ex().has_output("2.0")
 Ex().has_output("1")
 success_msg('Good job! Next to the other exercise!')
 ```
+
+---
+
+## Variables
+
+```yaml
+type: NormalExercise
+key: 865df8eb11
+xp: 100
+```
+
+Variables can be understood as containers which store data in them.
+Unlike other programming languages, there is no special keyword to declare a variable.
+As soon as you assign some value to it, the variable is created.
+Not only values, but also operations, functions, processes can be assigned to a variable.
+For assignment `=` sign is used.
+
+`@instructions`
+- Use the assignment operator `=`
+- Create the variables
+
+`@hint`
+`+` operator is used for addition
+`=` operator is used for assignment
+`print()` is used for printing to the console
+
+`@pre_exercise_code`
+```{python}
+x = 3
+
+```
+
+`@sample_code`
+```{python}
+# Define a variable x and assign the value 3 to it
+x = 3
+# [DIY] Define a variable y and assign value 5 to it
+
+# [DIY] Define a variable z which is the sum of x and y
+
+# [DIY] Print the variable z to the console
+```
+
+`@solution`
+```{python}
+y = 5
+z = x + y
+print(z)
+```
+
+`@sct`
+```{python}
+Ex().check_object("x").has_equal_value()
+Ex().check_object("y").has_equal_value()
+Ex().check_object("z").has_equal_value()
+Ex().has_output('8')
+success_msg("Good Job!")
+```
