@@ -200,3 +200,82 @@ Check the 3rd exercise
 - `<-`
 
 `@feedback`
+
+
+---
+
+## Variables
+
+```yaml
+type: NormalExercise
+key: 7845e5f574
+xp: 100
+```
+
+Data types
+There are three most common data types in Python.
+
+numerics (`int`, `float`) - these are values like 3 and 4.123. Bear in mind that, Python does treat 3 and 4.123 differently, because 3 is type of `int` - integer, whereas 4.123 is type of `float` - floating point number
+
+strings (`str`) - these are textual values like “dog” and “cat”, "453". Did you notice how we make `int` 453 a string? In order to cast something as `str` we add quotation marks around it, `' '` or `" "`. Most of the time `" "` is preferred.
+
+boolean (`bool`) - these are booleans that take only two values `True`, `False`. Python can also accept 1 and 0 as booleans `True` and `False` accordingly, based on use case.
+
+Unlike R, Python can work with mixed data types with some limitations. For example, you can not sum 1 and "Python", but you can `"Python" * 2` which will output `PythonPython`.
+However, such operations are discouraged.
+Lastly, you can check the type of any variable using `type()` built-in function
+
+`@instructions`
+1. Define a numeric variable x and assign 3.14 to it
+2. Define a numeric variable y and assign 2 to it
+3. Define a string variable s and assign "Python" to it
+4. Define a boolean variable z and assign `True` to it
+5. Print the type of `x + y`
+
+`@hint`
+1. Use built-in `type()` function to check for the variable type
+2. Use built-in `print()` function to print something to the console
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+# [DIY] define a variable x and assign 3.14 to it
+
+# [DIY] define a variable y and assign 2 to it
+
+# [DIY] define a variable s and assign Python to it
+
+# [DIY] define a variable z and assign True to it
+
+# [DIY] print the type of x + y
+
+
+```
+
+`@solution`
+```{python}
+# [DIY] define a variable x and assign 3.14 to it
+x = 3.14
+# [DIY] define a variable y and assign 2 to it
+y = 2
+# [DIY] define a variable s and assign Python to it
+s = "Python"
+# [DIY] define a variable z and assign True to it
+z = True
+# [DIY] print the type of x + y
+print(type(x + y))
+```
+
+`@sct`
+```{python}
+Ex().check_object("x").has_equal_value()
+Ex().check_object("y").has_equal_value()
+Ex().check_object("s").has_equal_value()
+Ex().check_object("z").has_equal_value()
+Ex().has_output("<class 'float'>")
+success_msg("Good Job!")
+```
