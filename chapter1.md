@@ -14,11 +14,16 @@ xp: 100
 skills: 2
 ```
 
-Welcome to the short introductory tutorial for Python. Here is how this tutorial works: 
-In the editor on the right you should be able to write Python code to solve the exercises.
-In order to make your code more understandable to yourself and other people reading it, you can use comments. `#` symbol indicates the start of a line of comment.
-There will be some code in exercises for the reference. For the parts that must be filled by you, you will see `[DIY]` above them.
-You can execute your code by clicking `Execute` button. If you are pleased with results, you can submit your code via `Submit` button.
+Welcome to the short introductory tutorial for Python.
+Here is how this tutorial works: In the editor (in the top right quadrant of the screen) you will be able to write Python code to solve assigned problems.
+In order to make your code more understandable to yourself and others, you can use comments, explanations.`#` symbol indicates the start of a line of comment. This line is simply ignored by the machine.
+You can also write more substantial comments over multiple lines. For this you should use triple quotation marks  as `"""Comment that can be in multiple lines"""`.
+For each chapter, you will have a part of script that is already developed, and part that requires your input. The latter parts will be explicitly marked with `[DIY]`. It is imperative that you develop these parts of the code before submitting your answer for the chapter.
+To pre-test your solutions, you can use "Run Code" button. Python output, including problems will be displayed in IPython Shell window bellow the script.
+Note that you can also write commands directly in the shell and execute them by clicking enter, but these will not be saved for your future reference.
+Once you are happy with results delivered by your script in the editor (script.py), you can submit your code via "Submit Answer" button.
+
+
 
 `@instructions`
 Make the text you see a one line comment
@@ -45,6 +50,7 @@ ignored
 """
 # [DIY]
 text supposed to be a one line comment
+
 ```
 
 `@solution`
@@ -54,7 +60,7 @@ text supposed to be a one line comment
 
 `@sct`
 ```{python}
-Ex().has_code("#text supposed to be a one line comment", not_typed_msg="You should have a `#` sign to comment out a line")
+Ex().has_code("#*", not_typed_msg="You should have a `#` sign to comment out a line")
 success_msg("Good job! On to the next exercise")
 ```
 
