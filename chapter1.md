@@ -209,7 +209,6 @@ xp: 50
 
 What is the basic assignment operator in Python?
 
-
 `@hint`
 Check the 3rd exercise
 
