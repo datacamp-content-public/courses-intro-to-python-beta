@@ -94,20 +94,18 @@ Another method for finding square root is to increase the number to the power of
 
 `@sample_code`
 ```{python}
-x = 5
-y = 4
-#+	Add two operands or unary plus	x + y, - Subtract right operand from the left or unary minus	x - y
-#*	Multiply two operands	x * y, **	Exponent - left operand raised to the power of right	x**y (x to the power y)
+# +	Add two operands or unary plus	x + y, - Subtract right operand from the left or unary minus	x - y
+# *	Multiply two operands	x * y, **	Exponent - left operand raised to the power of right	x**y (x to the power y)
 
-#[DIY] `x` to the power of 4
+#[DIY] 5 to the power of 4
 print()
-#[DIY] Add 5 to `y`
+#[DIY] Add 5 to 4
 print()
-#[DIY] Subtract 10 from `x`
+#[DIY] Subtract 10 from 5
 print()
-#[DIY] Square root of `y`
+#[DIY] Square root of 4
 print()
-#[DIY] Find the difference between `x` and `y`
+#[DIY] Find the difference between 5 and 4
 print()
 ```
 
@@ -229,7 +227,7 @@ Check the 3rd exercise
 
 ---
 
-## Data types 1
+## Simple data types
 
 ```yaml
 type: NormalExercise
@@ -237,25 +235,21 @@ key: 7845e5f574
 xp: 100
 ```
 
-Data types 1
 There are three most common data types in Python.
 
-numerics (`int`, `float`) - these are values like 3 and 4.123. Bear in mind that, Python does treat 3 and 4.123 differently, because 3 is type of `int` - integer, whereas 4.123 is type of `float` - floating point number
+numerics (`int`, `float`) - these are values like 3 and 4.123. Notice that 3 is an integer, wile 4.123 is not. It is a fraction, which is referred in python as `float`. Bear in mind that Python treats `int` and `float` differently. 
 
-strings (`str`) - these are textual values like “dog” and “cat”, "453". Did you notice how we make `int` 453 a string? In order to cast something as `str` we add quotation marks around it, `' '` or `" "`. Most of the time `" "` is preferred.
+strings (`str`) - these are textual values like “dog” and “cat”, "453". Did you notice how we made int 453 a string? In order to cast something as str we add quotation marks around it `" "`. 
 
-boolean (`bool`) - these are booleans that take only two values `True`, `False`. Python can also accept 1 and 0 as booleans `True` and `False` accordingly, based on use case.
+boolean (`bool`) - these are booleans that take only two values: `True`, `False`. They are used to evaluate certain expressions.
 
-Unlike R, Python can work with mixed data types with some limitations. For example, you can not sum 1 and "Python", but you can `"Python" * 2` which will output `PythonPython`.
-However, such operations are discouraged.
-Lastly, you can check the type of any variable using `type()` built-in function
+Notice that Python can work with data of different types. However, you have to keep in mind the type of every data in order not to ask Python compute something you did not intend to.
+You can check the type of any data using `type()` function.
 
 `@instructions`
-1. Define a numeric variable x and assign 3.14 to it
-2. Define a numeric variable y and assign 2 to it
-3. Define a string variable s and assign "Python" to it
-4. Define a boolean variable z and assign `True` to it
-5. Print the type of `x + y`
+1. Define a string variable s and assign "Python" to it
+2. Define a boolean variable z and assign `True` to it
+3. Print the type of `x + y`
 
 `@hint`
 1. Use built-in `type()` function to check for the variable type
@@ -269,10 +263,10 @@ Lastly, you can check the type of any variable using `type()` built-in function
 `@sample_code`
 ```{python}
 # [DIY] define a variable x and assign 3.14 to it
-
+x = 3.14
 # [DIY] define a variable y and assign 2 to it
-
-# [DIY] define a variable s and assign Python to it
+y = 2
+# [DIY] define a variable s and assign "Python" to it
 
 # [DIY] define a variable z and assign True to it
 
@@ -307,7 +301,7 @@ success_msg("Good Job!")
 
 ---
 
-## Data types 2
+## Lists
 
 ```yaml
 type: NormalExercise
@@ -320,31 +314,14 @@ Apart from simple data types, Python also has some complex data types which serv
 2. Tuples
 3. Dictionaries
 
-Lists are like vectors in R, or arrays in other languages. A list is a collection which is **ordered** and **changeable**. In Python lists are written with squared brackets.`[]`. They can contain elements of different types.
+Lists are like vectors in R, or arrays in other languages. A list is a collection which is **changeable**. In Python lists are written with squared brackets.`[]`. They can contain elements of different types.
 ```
 a = [1, 2.0, "Python", True]
-```
-Tuples are like lists, but they are **unchangeable**. They start and end with round brackets, `()`. They can also contain elements of different types
-```
-b = (1, 2.0, "Python", True)
-```
-Dictionary is a collection of keys and values which are **unordered**, and **changeable**. Dictionaries start and end with curly brackets, `{}`. They can also contain elements of different types, **but there keys are always strings**
-```
-c = {"a": 1, "2": "Python", "c": True}
-```
-In order to retrieve and element from lists and tuples, their index number is used in square brackets. For dictionaries, key is used. Python is zero indexed language, e.g indexes start at zero. So, the first element of `a` can be retrieved via `a[0]` **not** `a[1]`
-```
-a[0]
-b[0]
-c["a"]
 ```
 
 `@instructions`
 1. Create a list `a` which contains an integer, boolean and a string in this order
-2. Create a tuple `b` which contains 3 integers
-3. Create a dictionary `c` with two key-value pairs
-4. Print the type of the 2nd element of `a`
-5. Print the type of first element of `b`
+2. Print the type of the 2nd element of `a`
 
 `@hint`
 - Python is zero indexed language
@@ -355,61 +332,47 @@ c["a"]
 def sanity_check_list(obj):
   return type(obj) == list and len(obj) == 3 and type(obj[0]) == int and type(obj[1]) == bool and type(obj[2]) == str
 
-def sanity_check_tuple(obj):
-  return type(obj) == tuple and len(obj) == 3 and type(obj[0]) == int and type(obj[1]) == int and type(obj[2]) == int
-
-def sanity_check_dict(obj):
-  return type(obj) == dict and len(obj) == 2
 ```
 
 `@sample_code`
 ```{python}
+# Some sample list for reference
+b = ["string", 4, 5.23, False]
+
 # [DIY] Create a list `a` which contains an integer, boolean and a string in this order
 
-# [DIY] Create a tuple `b` which contains 3 integers
-
-# [DIY] Create a dictionary `c` with two key-value pairs
 
 
 # Sanity check. Do not edit these lines
 sanity_check_list(a)
-sanity_check_tuple(b)
-sanity_check_dict(c)
 
 # [DIY] Print the type of the 2nd element of `a`
 
-# [DIY] Print the type of first element of `b`
 
 ```
 
 `@solution`
 ```{python}
+# Some sample list for reference
+b = ["string", 4, 5.23, False]
+
 # [DIY] Create a list `a` which contains an integer, boolean and a string in this order
 a = [2, True, "A"]
-# [DIY] Create a tuple `b` which contains 3 integers
-b = (1, 2, 3)
-# [DIY] Create a dictionary `c` with two key-value pairs
-c = {"key1": 1, "key2": 2}
 
 # Sanity check. Do not edit these lines. If these functions fail, check the variable definitions
 sanity_check_list(a)
-sanity_check_tuple(b)
-sanity_check_dict(c)
+
 
 
 # [DIY] Print the type of the 2nd element of `a`
 print(type(a[1]))
-# [DIY] Print the type of first element of `b`
-print(type(b[0]))
+
 
 ```
 
 `@sct`
 ```{python}
 Ex().check_function("sanity_check_list").has_equal_value()
-Ex().check_function("sanity_check_tuple").has_equal_value()
-Ex().check_function("sanity_check_dict").has_equal_value()
 Ex().has_equal_output("<class 'bool'>")
 Ex().has_equal_output("<class 'int'>")
-
 ```
