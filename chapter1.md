@@ -76,11 +76,11 @@ Arithmetic operations in Python are pretty much the same as in other mathematica
 
 `@instructions`
 With given `x` and `y`, `print()` the followings:
-1. `x` to the power of 4
-2. Add 5 to `y`
-3. Subtract 10 from `x`
-4. Square root of `y`
-5. Find the difference between `x` and `y`
+1. 5 to the power of 4
+2. Add 5 to 4
+3. Subtract 10 from 5
+4. Square root of 4
+5. Find the difference between 5 and 4
 
 `@hint`
 Another method for finding square root is to increase the number to the power of 1/2
@@ -109,21 +109,19 @@ print()
 
 `@solution`
 ```{python}
-x = 5
-y = 4
 #+	Add two operands or unary plus	x + y, - Subtract right operand from the left or unary minus	x - y
 #*	Multiply two operands	x * y, **	Exponent - left operand raised to the power of right	x**y (x to the power y)
 
-#[DIY] `x` to the power of 4
-print(x ** 4)
-#[DIY] Add 5 to `y`
-print(y + 5)
-#[DIY] Subtract 10 from `x`
-print(x - 10)
-#[DIY] Square root of `y`
-print(y ** 1/2)
-#[DIY] Find the difference between `x` and `y`
-print(x - y)
+#[DIY] 5 to the power of 4
+print(5 ** 4)
+#[DIY] Add 5 to 4
+print(4 + 5)
+#[DIY] Subtract 10 from 5
+print(5 - 10)
+#[DIY] Square root of 4
+print(4 ** 1/2)
+#[DIY] Find the difference between 5 and 4
+print(5 - 4)
 ```
 
 `@sct`
@@ -153,8 +151,7 @@ Not only values, but also operations, functions, processes can be assigned to a 
 For assignment `=` sign is used.
 
 `@instructions`
-- Use the assignment operator `=`
-- Create the variables
+Create the variables
 
 `@hint`
 `+` operator is used for addition
