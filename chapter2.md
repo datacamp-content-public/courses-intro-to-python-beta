@@ -75,10 +75,12 @@ NumPy arrays are much like Python lists, but different from lists, they are very
 
 
 `@instructions`
-1.
+1. Perform the subtraction
+2. Perform the division
 
 `@hint`
-
+1. Use Python's `-` operator for subtraction
+2. Use Python's `/` operator for division
 
 `@pre_exercise_code`
 ```{python}
@@ -87,15 +89,49 @@ NumPy arrays are much like Python lists, but different from lists, they are very
 
 `@sample_code`
 ```{python}
+# Importing Numpy
+import numpy as np
 
+# Creating an array
+a = np.array([1, 2, 3, 4])
+
+# Adding 4 to each element
+print(a + 4)
+
+# [DIY] Subtract 4 from each element
+print()
+
+# Multiplying each element by 2
+print(a * 2)
+
+# [DIY] Dividing each element by 2
+print()
 ```
 
 `@solution`
 ```{python}
+# Importing Numpy
+import numpy as np
 
+# Creating an array
+a = np.array([1, 2, 3, 4])
+
+# Adding 4 to each element
+a + 4
+
+# [DIY] Subtract 4 from each element
+a - 4
+
+# Multiplying each element by 2
+a * 2
+
+# [DIY] Dividing each element by 2
+a / 2
 ```
 
 `@sct`
 ```{python}
-
+Ex().has_code("a*-*4")
+Ex().has_code("a*/*2")
+success_msg("Good job!")
 ```
