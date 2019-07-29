@@ -23,8 +23,6 @@ To pre-test your solutions, you can use "Run Code" button. Python output, includ
 Note that you can also write commands directly in the shell and execute them by clicking enter, but these will not be saved for your future reference.
 Once you are happy with results delivered by your script in the editor (script.py), you can submit your code via "Submit Answer" button.
 
-
-
 `@instructions`
 Make the text you see a one line comment
 
