@@ -5,11 +5,11 @@ set -e
 # Install specific package versions with pip
 # Check the latest version using https://pypi.org/search
 
-pip3 install pandas==0.25.0
-pip3 install matplotlib==3.1.1
+pip3 install pandas
+pip3 install matplotlib
 # pip3 install scikit-learn==0.19.2
-# pip3 install numpy==1.15.0
-pip3 install seaborn==0.9.0
+pip3 install numpy
+pip3 install seaborn
 # pip3 install bokeh==0.13.0
 
 
