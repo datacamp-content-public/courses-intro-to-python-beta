@@ -1,5 +1,7 @@
 # If bash command fails, build should error out
 set -e
+pip3 install matplotlib
+pip3 install seaborn
 
 # Install specific package versions with pip
 # Check the latest version using https://pypi.org/search
