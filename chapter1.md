@@ -198,30 +198,6 @@ success_msg("Good Job!")
 
 ---
 
-## Recap question
-
-```yaml
-type: PureMultipleChoiceExercise
-key: 6972908033
-xp: 50
-```
-
-What is the basic assignment operator in Python?
-
-`@hint`
-Check the 3rd exercise
-
-`@possible_answers`
-- `_`
-- [`=`]
-- `->`
-- `<-`
-
-`@feedback`
-
-
----
-
 ## Simple data types
 
 ```yaml
