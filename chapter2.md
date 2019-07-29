@@ -71,7 +71,7 @@ key: 4aa7786816
 xp: 100
 ```
 
-NumPy arrays are much like Python lists, but different from lists, they are very efficient in numerical calculations. `np.array()` is the main function to create or convert existing data to a NumPy array (hereafter array). Arrays support all kinds of calculations including addition, division, subtraction, multiplication, transformation and etc.
+NumPy arrays are much like Python lists, but different from lists, they are very efficient in numerical calculations. `np.array()` is the main function to create or convert existing data to a NumPy ndarray (hereafter array). Arrays support all kinds of calculations including addition, division, subtraction, multiplication, transformation and etc.
 
 
 `@instructions`
@@ -134,4 +134,124 @@ a / 2
 Ex().has_code("a*-*4")
 Ex().has_code("a*/*2")
 success_msg("Good job!")
+```
+
+---
+
+## Pandas data frames
+
+```yaml
+type: NormalExercise
+key: 5bf567c736
+xp: 100
+```
+
+Data frames are consisting of NumPy arrays which also have names (columns) and indexes (rows) attached to them. `pd.DataFrame()` is the main function to create or convert existing data to a pandas data frame object (hereafter dataframe). Data frame not only support almost everything NumPy supports, but also it has additional functionality like querying, merging, summarizing, data reading and even plotting!
+Indexing a dataframe is similar to indexing a list. Instead of number, you can use column name as and index in squared brackets like `dataframe["column_name"]`. If you index a column which does not exist and assign a value(s) to it, then this column will be automatically created with given value(s).
+You can not only give custom values, but also use existing columns to calculate the new columns too. The notion is the same as variable operations in Python. Easy as that!
+
+
+
+
+`@instructions`
+1. Create a list of sales [10, 11, 23, 42, 12]
+2. Find the maximum of the sales
+3. Find the total sales
+4. Find the total bonuses
+
+`@hint`
+1. Create a list with `[]` in Python
+2. Use `max()` for finding the maximum of the sales
+3. Use `sum()` for finding the total sales
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+# Importing the packages
+import pandas as pd
+import numpy as np
+
+
+# Create a list of departments
+departments = ["First", "Second", "Third", "Fourth", "Fifth"]
+
+# [DIY] Create a NumPy array named sales with values 10, 11, 23, 42, 12
+
+
+# Create a dataframe. Pandas works with both Python and NumPy data types!
+df = pd.DataFrame({"dept" : departments, "sales": sales})
+
+# Minimum of the sales
+print(df["sales"].min())
+
+# [DIY] Maximum of the sales
+
+
+# Create a column named bonus_pct and assign 0.1 to it
+df["bonus_pct"] = 0.1
+
+# Create a column bonus which is the multiplication of sales and bonus_pct
+df["bonus"] = df["sales"] * df["bonus_pct"]
+
+# Print the dataframe
+print(df)
+
+# [DIY] Find total bonuses
+
+# Summary statistics of numerical values of the dataframe
+print(df.describe())
+```
+
+`@solution`
+```{python}
+# Importing the packages
+import pandas as pd
+import numpy as np
+
+
+# Create a list of departments
+departments = ["First", "Second", "Third", "Fourth", "Fifth"]
+
+# [DIY] Create a NumPy array named sales with values 10, 11, 23, 42, 12
+sales = np.array([10, 11, 23, 42, 12])
+
+# Create a dataframe. Pandas works with both Python and NumPy data types!
+df = pd.DataFrame({"dept" : departments, "sales": sales})
+
+# Minimum of the sales
+print(df["sales"].min())
+
+# [DIY] Maximum of the sales
+print(df["sales"].max())
+
+# Total sales
+print(df["sales"].sum())
+
+# Create a column named bonus_pct and assign 0.1 to it
+df["bonus_pct"] = 0.1
+
+# Create a column bonus which is the multiplication of sales and bonus_pct
+df["bonus"] = df["sales"] * df["bonus_pct"]
+
+# Print the dataframe
+print(df)
+
+# [DIY] Find total bonuses
+print(df["bonus"].sum())
+
+# Summary statistics of numerical values of the dataframe
+print(df.describe())
+```
+
+`@sct`
+```{python}
+Ex().check_object("sales").has_equal_value()
+Ex().has_output("42")
+Ex().has_output("9.8")
+
+success_msg("Good Job!")
 ```
