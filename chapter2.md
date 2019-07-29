@@ -255,3 +255,41 @@ Ex().has_output("9.8")
 
 success_msg("Good Job!")
 ```
+
+---
+
+## Plotting
+
+```yaml
+type: NormalExercise
+key: d73ddb3211
+xp: 100
+```
+
+
+
+`@instructions`
+
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+
+```
+
+`@solution`
+```{python}
+
+```
+
+`@sct`
+```{python}
+
+```
