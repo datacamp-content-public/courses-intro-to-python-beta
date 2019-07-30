@@ -251,3 +251,41 @@ Ex().has_output("9.8")
 
 success_msg("Good Job!")
 ```
+
+---
+
+## Visualization
+
+```yaml
+type: NormalExercise
+key: 301c3c486c
+xp: 100
+```
+
+
+
+`@instructions`
+
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+
+```
+
+`@solution`
+```{python}
+
+```
+
+`@sct`
+```{python}
+
+```
