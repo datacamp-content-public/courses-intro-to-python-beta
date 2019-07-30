@@ -347,3 +347,84 @@ Ex().check_function("sanity_check_list").has_equal_value()
 Ex().has_equal_output("<class 'bool'>")
 Ex().has_equal_output("<class 'int'>")
 ```
+
+---
+
+## Functions
+
+```yaml
+type: NormalExercise
+key: 32017a34d1
+xp: 100
+```
+
+Function is a block of code which runs only when called. Main goal of a function is to manipulate the inputs and produce an output (95 % of the time). Functions in Python are defined with `def` keyword followed by `():` where you pass your arguments. In some programming languages function body is written within curly braces, `{}`, but in Python identation plays an important role. Typical function looks like this:
+```
+def function_name(arg1, arg2):			# function has two arguments. Arg1 and arg2 names are purely arbitrary
+	"""
+    Explanation what function does, 
+    called a docstring. 
+    It is advised that 
+    every function has one
+    """
+	function body						# this is function body
+    return some_result					# function output which starts with return keyword
+```
+To call that function we do the following:`function_name(arg1 = first_argument, arg2 = second_argument)`
+
+
+`@instructions`
+1. Create a function `perimeter` which calculates the perimeter of a triangle given sides
+2. Create a function `area` which calculates the area of a circle given radius
+
+`@hint`
+Use `def` to define a function and do not forget about identation
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+# Custom function adder()
+
+def adder(a, b):		# argument names can be anything
+  return a + b
+
+# [DIY] Create a function perimeter() which calculates the perimeter of a triangle
+
+# Checking the function perimeter()
+perimeter(3, 4, 5)
+
+# [DIY] Create a function area() which calculates the area of a circle given radius (pi = 3.14)
+
+
+# Checking the function area
+area(3)
+
+```
+
+`@solution`
+```{python}
+def perimeter(a, b, c):
+  return a + b + c
+
+
+
+def area(r):
+  return r ** 2 * 3.14
+
+
+```
+
+`@sct`
+```{python}
+Ex().check_function_def('perimeter').multi(
+    check_call("f(3, 4, 5)").has_equal_value()
+)
+Ex().check_function_def('area').multi(
+    check_call("f(3)").has_equal_value()
+)
+success_msg("Good Job!")
+```
