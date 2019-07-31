@@ -372,7 +372,6 @@ def function_name(arg1, arg2):			# function has two arguments. Arg1 and arg2 nam
 ```
 To call that function we do the following:`function_name(arg1 = first_argument, arg2 = second_argument)`
 
-
 `@instructions`
 1. Create a function `perimeter` which calculates the perimeter of a triangle given sides
 2. Create a function `area` which calculates the area of a circle given radius
