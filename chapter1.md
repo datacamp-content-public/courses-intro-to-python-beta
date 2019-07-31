@@ -83,7 +83,7 @@ With given `x` and `y`, `print()` the followings:
 5. Find the difference between 5 and 4
 
 `@hint`
-Another method for finding square root is to increase the number to the power of 1/2
+Another method for finding square root is to increase the number to the power of 0.5
 
 `@pre_exercise_code`
 ```{python}
@@ -119,7 +119,7 @@ print(4 + 5)
 #[DIY] Subtract 10 from 5
 print(5 - 10)
 #[DIY] Square root of 4
-print(4 ** 1/2)
+print(4 ** 0.5)
 #[DIY] Find the difference between 5 and 4
 print(5 - 4)
 ```
