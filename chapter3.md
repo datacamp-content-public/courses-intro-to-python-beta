@@ -205,7 +205,7 @@ Ex().check_function("scipy.stats.binom_test", 1).multi(
 
 ---
 
-## Alternative hyphotesis
+## Alternative hypothesis
 
 ```yaml
 type: NormalExercise
@@ -325,4 +325,42 @@ Ex().check_function("scipy.stats.binom_test", 4).multi(
   check_args("p").has_equal_value(),
   check_args("alternative").has_equal_value()
 )
+```
+
+---
+
+## t-test
+
+```yaml
+type: NormalExercise
+key: 014ec4d4ad
+xp: 100
+```
+
+
+
+`@instructions`
+
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+
+```
+
+`@solution`
+```{python}
+
+```
+
+`@sct`
+```{python}
+
 ```
