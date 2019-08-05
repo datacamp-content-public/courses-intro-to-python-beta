@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 1'
+title: 'Introduction to Python'
 description: 'Introduction to Python'
 free_preview: true
 ---

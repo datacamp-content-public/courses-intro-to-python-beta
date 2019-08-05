@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 2'
+title: 'Data and visualizatoin'
 description: 'Introduction to NumPy, Pandas and simple plots'
 ---
 
@@ -146,7 +146,7 @@ xp: 100
 ```
 
 Data frames are consisting of NumPy arrays which also have names (columns) and indexes (rows) attached to them. `pd.DataFrame()` is the main function to create or convert existing data to a pandas data frame object (hereafter dataframe). Data frame not only support almost everything NumPy supports, but also it has additional functionality like querying, merging, summarizing, data reading and even plotting!
-Indexing a dataframe is similar to indexing a list. Instead of number, you can use column name as and index in squared brackets like `dataframe["column_name"]`. If you index a column which does not exist and assign a value(s) to it, then this column will be automatically created with given value(s).
+Indexing a dataframe is similar to indexing a list. Instead of number, you can use column name as and index in squared brackets like `dataframe["column_name"]` or `dataframe.column_name`. If you index a column which does not exist and assign a value(s) to it, then this column will be automatically created with given value(s).
 You can not only give custom values, but also use existing columns to calculate the new columns too. The notion is the same as variable operations in Python. Easy as that!
 
 `@instructions`
@@ -219,7 +219,7 @@ sales = np.array([10, 11, 23, 42, 12])
 df = pd.DataFrame({"dept" : departments, "sales": sales})
 
 # Minimum of the sales
-print(df["sales"].min())
+print(df.sales.min())
 
 # [DIY] Maximum of the sales
 print(df["sales"].max())
