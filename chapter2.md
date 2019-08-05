@@ -150,7 +150,7 @@ Indexing a dataframe is similar to indexing a list. Instead of number, you can u
 You can not only give custom values, but also use existing columns to calculate the new columns too. The notion is the same as variable operations in Python. Easy as that!
 
 `@instructions`
-1. Create a list of sales [10, 11, 23, 42, 12]
+1. Create an array of sales [10, 11, 23, 42, 12]
 2. Find the maximum of the sales
 3. Find the total sales
 4. Find the total bonuses
@@ -262,13 +262,24 @@ key: 301c3c486c
 xp: 100
 ```
 
+Data visualization is the process of converting raw data into easily understandable pictorial representation, that enables fast and effective decisions.
+Data visualization is a strategy where we represent the quantitative information in a graphical form. The key points of data visualization are:
+- Data visualization is the first step of analysis work.
+- It gives intuitive understanding of data.
+- Helps you to see data in certain meaningful patterns.
+- Visual representations enhances the human cognitive process.
 
+Python has a number of visualization libraries. There are both low and high level tools that give you different levels of control over what you do and how you want to do it. We will use `seaborn` package to do the plotting. It uses `matplotlib` library in its core. That's why, almost every time you should import them together.
+```
+import seaborn as sns	  			  # seaborn alias
+import matplotlib.pyplot as plt		# matplotlib alias
+```
 
 `@instructions`
-
+1. Create a distribution plot
 
 `@hint`
-
+Use `distplot()` for making a distribution plot
 
 `@pre_exercise_code`
 ```{python}
@@ -277,15 +288,61 @@ xp: 100
 
 `@sample_code`
 ```{python}
+# Importing seaborn, numpy and matplotlib
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
 
+
+# Creating an array of values
+x = np.array([1,4,3,5,5,6,3,6,3,5,3,5,1,5,1,6,3,4,6])
+
+# Plot the distribution of x
+sns.distplot(x)
+plt.show()
+
+# [DIY] Create another array of values named y
+
+# [DIY] Plot the distribution of y
+
+
+
+# One can plot several distributions on top of each other for comparison
+sns.distplot(x)
+sns.distplot(y)
+plt.show()
 ```
 
 `@solution`
 ```{python}
+# Importing seaborn, numpy and matplotlib
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
 
+
+# Creating an array of values
+x = np.array([1,4,3,5,5,6,3,6,3,5,3,5,1,5,1,6,3,4,6])
+
+# Plot the distribution of x
+sns.distplot(x)
+plt.show()
+
+# [DIY] Create another array of values named y - [1,4,1,1,5,4,6,5,4,4,2,6,3,3,2,3,1,5,2]
+y = np.array([1,4,1,1,5,4,6,5,4,4,2,6,3,3,2,3,1,5,2])
+# [DIY] Plot the distribution of y
+sns.distplot(y)
+plt.show()
+
+# One can plot several distributions on top of each other for comparison
+sns.distplot(x)
+sns.distplot(y)
+plt.show()
 ```
 
 `@sct`
 ```{python}
-
+Ex().check_object('y').has_equal_value()
+Ex().check_function("seaborn.distplot").has_equal_output()
+success_msg("Good job!")
 ```
