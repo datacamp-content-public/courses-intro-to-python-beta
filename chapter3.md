@@ -151,10 +151,10 @@ from scipy.stats import binom_test
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
 # Display the distribution of variable "am"
-print(df.am.value_counts())
+df.am.value_counts()
 
 # Running our test given the frequency distributions where "am" = 0
-print(binom_test(x = 19, n = 32, p = 0.5))
+binom_test(x = 19, n = 32, p = 0.5)
 
 # [DIY] Calculate how many cars in the dataset have less than 6 cylinders
 
@@ -189,8 +189,140 @@ binom_test(x = 11, n = 32, p = 0.6)
 
 `@sct`
 ```{python}
-Ex().check_function("df.cyl.value_counts").has_equal_value()
-Ex().check_function("scipy.stats.binom_test").check_args(0).has_equal_value()
-Ex().check_function("scipy.stats.binom_test").check_args(1).has_equal_value()
-Ex().check_function("scipy.stats.binom_test").check_args(2).has_equal_value()
+Ex().check_function("df.am.value_counts", 0).has_equal_value()
+Ex().check_function("scipy.stats.binom_test", 0).multi(
+  check_args("x").has_equal_value(),
+  check_args("n").has_equal_value(),
+  check_args("p").has_equal_value()
+)
+Ex().check_function("df.cyl.value_counts", 0).has_equal_value()
+Ex().check_function("scipy.stats.binom_test", 1).multi(
+  check_args("x").has_equal_value(),
+  check_args("n").has_equal_value(),
+  check_args("p").has_equal_value()
+)
+```
+
+---
+
+## Alternative hyphotesis
+
+```yaml
+type: NormalExercise
+key: 9271761056
+xp: 100
+```
+
+Alternative hypothesis
+In the previous chapter we have not specified the alternative hypothesis. Instead, R automatically performed a two-sided test. This is a default option.
+
+We can, of course, specify the alternative hypothesis we want to work this.
+
+This is imply an additional argument in our `scipy.stats.binom_test` function. This argument is `alternative`, and takes three values “two-sided”, “less” and “greater”.
+
+On the right you see the same test from last chapter executed twice. First without specifying alternative hypothesis. Then with the specification. This clearly makes no difference.
+
+However, if we want to perform a one-sided test checking whether we have any statistical evidence that the share of am=0 cars is less than 0.5, we have to specify the argument `alternative="less”`
+
+Notice that in this case the p-value is 89% which means that we do not find statistically significant evidence to reject our null hypothesis in favor of the alternative.
+
+`@instructions`
+- Simply change the value of the `alternative` in order to test whether the share of am=0 cars is more than 0.5.
+- What is the conclusion from this test?
+- When testing for the share of the less than 6 cylinder cars, do not forget to first calculate the number of such cars in our dataset, by using `value_counts()`
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+# Load the packages
+import pandas as pd
+from scipy.stats import binom_test
+
+# Load the dataframe
+df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+#perform the test without alternative specification
+binom_test(x=19, n=32, p=0.5)
+
+#perform the same test with specifying "two sided" as an alternative hypothesis
+binom_test(x=19, n=32, p=0.5, alternative="two-sided")
+
+#perform the test checking whether the share of am=0 cars is less than 0.5
+binom_test(x=19, n=32, p=0.5, alternative="less")
+
+#[DIY] perform the test checking whether the share of am=0 cars is greater than 0.5
+
+
+#[DIY] perform the test checking whether the share of cars with less than 6 cylinders is greater than 20%
+
+
+```
+
+`@solution`
+```{python}
+# Load the packages
+import pandas as pd
+from scipy.stats import binom_test
+
+# Load the dataframe
+df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+#perform the test without alternative specification
+binom_test(x=19, n=32, p=0.5)
+
+#perform the same test with specifying "two sided" as an alternative hypothesis
+binom_test(x=19, n=32, p=0.5, alternative="two-sided")
+
+#perform the test checking whether the share of am=0 cars is less than 0.5
+binom_test(x=19, n=32, p=0.5, alternative="less")
+
+#[DIY] perform the test checking whether the share of am=0 cars is greater than 0.5
+binom_test(x=19, n=32, p=0.5, alternative="greater")
+
+#[DIY] perform the test checking whether the share of cars with less than 6 cylinders is greater than 20%
+df.cyl.value_counts()
+binom_test(x=11, n=32, p=0.2, alternative="greater")
+
+```
+
+`@sct`
+```{python}
+Ex().check_function("scipy.stats.binom_test", 0).multi(
+  check_args("x").has_equal_value(),
+  check_args("n").has_equal_value(),
+  check_args("p").has_equal_value()
+)
+Ex().check_function("scipy.stats.binom_test", 1).multi(
+  check_args("x").has_equal_value(),
+  check_args("n").has_equal_value(),
+  check_args("p").has_equal_value(),
+  check_args("alternative").has_equal_value()
+)
+Ex().check_function("scipy.stats.binom_test", 2).multi(
+  check_args("x").has_equal_value(),
+  check_args("n").has_equal_value(),
+  check_args("p").has_equal_value(),
+  check_args("alternative").has_equal_value()
+)
+
+Ex().check_function("scipy.stats.binom_test", 3).multi(
+  check_args("x").has_equal_value(),
+  check_args("n").has_equal_value(),
+  check_args("p").has_equal_value(),
+  check_args("alternative").has_equal_value()
+)
+Ex().check_function("df.cyl.value_counts").has_equal_output()
+Ex().check_function("scipy.stats.binom_test", 4).multi(
+  check_args("x").has_equal_value(),
+  check_args("n").has_equal_value(),
+  check_args("p").has_equal_value(),
+  check_args("alternative").has_equal_value()
+)
 ```
