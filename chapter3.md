@@ -346,13 +346,14 @@ And all this, of course, based on the sample of the data.
 
 For this we will use a different data, data on characteristics of iris flowers from `seaborn` package. .
 
-The function we will need is `ttest_1samp` from `scipy.stats`. This is a two-sided test for the null hypothesis that the expected value (mean) of a sample of independent observations `a` is equal to the given population mean, popmean
+The function we will need is `ttest_1samp` from `scipy.stats`. This is a two-sided test for the null hypothesis that the expected value (mean) of a sample of independent observations `a` is equal to the given population mean, `popmean`
 
 Except that now, instead of calculating the number of observations qualifying of the test by hand (which we did in case of z-test), we can pass the variable we want to test to the function `ttest_1samp`.
 
 
 `@instructions`
-
+- Perform the t-test of sepal width against population mean 3
+- What does the result you see imply?
 
 `@hint`
 
@@ -370,14 +371,35 @@ from scipy.stats import ttest_1samp
 
 # Loading the data
 df = sns.load_dataset("iris")
+
+# Perform the t-test on sepal length against 5.6
+print(ttest_1samp(df.sepal_length, popmean = 5.6))
+
+# [DIY] Perform the t-test on sepal width against 3
+
 ```
 
 `@solution`
 ```{python}
+# Importing packages
+import seaborn as sns
+from scipy.stats import ttest_1samp
 
+# Loading the data
+df = sns.load_dataset("iris")
+
+# Perform the t-test on sepal length against 5.6
+print(ttest_1samp(df.sepal_length, popmean = 5.6))
+
+# [DIY] Perform the t-test on sepal width against 3
+ttest_1samp(df.sepal_width, popmean = 3)
 ```
 
 `@sct`
 ```{python}
-
+Ex().check_function("scipy.stats.ttest_1samp", 1).multi(
+  check_args("a").has_equal_value(),
+  check_args("popmean").has_equal_value()
+)
+success_msg("Good Job!")
 ```
