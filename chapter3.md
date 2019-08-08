@@ -337,6 +337,18 @@ key: 014ec4d4ad
 xp: 100
 ```
 
+T-test is the test on the mean of the variable. Using this test we will be able gain information in order to answer questions like:
+
+- is the average income of French household different from 50k Euros?
+- is the average grade of SKEMA students above 14?
+
+And all this, of course, based on the sample of the data.
+
+For this we will use a different data, data on characteristics of iris flowers from `seaborn` package. .
+
+The function we will need is `ttest_1samp` from `scipy.stats`. This is a two-sided test for the null hypothesis that the expected value (mean) of a sample of independent observations `a` is equal to the given population mean, popmean
+
+Except that now, instead of calculating the number of observations qualifying of the test by hand (which we did in case of z-test), we can pass the variable we want to test to the function `ttest_1samp`.
 
 
 `@instructions`
@@ -352,7 +364,12 @@ xp: 100
 
 `@sample_code`
 ```{python}
+# Importing packages
+import seaborn as sns
+from scipy.stats import ttest_1samp
 
+# Loading the data
+df = sns.load_dataset("iris")
 ```
 
 `@solution`
