@@ -403,3 +403,89 @@ Ex().check_function("scipy.stats.ttest_1samp", 1).multi(
 )
 success_msg("Good Job!")
 ```
+
+---
+
+## Two sample t-test
+
+```yaml
+type: NormalExercise
+key: 82b3cebe33
+xp: 100
+```
+
+T-test can also be used to compare characteristics of two independent samples. For this, we will use `ttest_ind` function from `scipy.stats`.
+
+This methodology can be used to get insight into questions like:
+
+- Is the income of French population high than income of German population?
+- Is the average resting heart rate of a sprinter lower than the average resting heart rate of a long-distance runner?
+For this exercise we will need to have the information on the same variable for two unrelated samples.
+
+In our case we could compare characteristics of two different species of iris. Say, `setosa` and `versicolor`. (attention on new code part)
+
+We could compare `petal_length`, `sepal_length`, `petal_width` or `sepal_width`.
+
+`@instructions`
+- Perform two sample t-test on `petal_width` on `setosa` and `versicolor`
+- Experiment with other features to compare, `sepal_width` for example. You can do it in `ipython` console
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+# Importing the libraries
+import pandas as pd
+import seaborn as sns
+from scipy.stats import ttest_ind
+
+# Loading the data
+df = sns.load_dataset("iris")
+
+# Creating our two sample datasets
+df1 = df[df.species == 'setosa']
+df2 = df[df.species == 'versicolor']
+         
+# Comparing petal length on both species
+print(ttest_ind(df1.petal_length, df2.petal_length))
+
+# [DIY] Compare petal with on both species
+
+```
+
+`@solution`
+```{python}
+# Importing the libraries
+import pandas as pd
+import seaborn as sns
+from scipy.stats import ttest_ind
+
+# Loading the data
+df = sns.load_dataset("iris")
+
+# Creating our two sample datasets
+df1 = df[df.species == 'setosa']
+df2 = df[df.species == 'versicolor']
+         
+# Comparing petal length on both species
+print(ttest_ind(df1.petal_length, df2.petal_length))
+
+# [DIY] Compare petal with on both species
+ttest_ind(df1.petal_width, df2.petal_width)
+
+```
+
+`@sct`
+```{python}
+Ex().check_function("scipy.stats.ttest_ind", 1).multi(
+  check_args("a").has_equal_value(),
+  check_args("b").has_equal_value()
+)
+success_msg("Good Job!")
+```
