@@ -350,7 +350,6 @@ The function we will need is `ttest_1samp` from `scipy.stats`. This is a two-sid
 
 Except that now, instead of calculating the number of observations qualifying of the test by hand (which we did in case of z-test), we can pass the variable we want to test to the function `ttest_1samp`.
 
-
 `@instructions`
 - Perform the t-test of sepal width against population mean 3
 - What does the result you see imply?
