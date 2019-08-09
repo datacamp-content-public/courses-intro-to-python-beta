@@ -107,7 +107,8 @@ We can generate the scatter plot of our data in Python using `regplot()` functio
 
 `@instructions`
 - Notice that you only need to specify your variable names in function `ols()` as you are specifying the dataset to use.
-- Notice that `regplot()` function in R first takes the variable that you want to measure on x-axis, and then the variable to be measured on y-axis. Which is of course different for the regression, where the variable to model always have to go first and will be visualized on y-axis.
+- Notice that `sns.regplot()` function in Python first takes the variable that you want to measure on x-axis, and then the variable to be measured on y-axis. Which is of course different for the regression modeling, where the variable to model always have to go first.
+- Attention on spacing in model formulas
 
 `@hint`
 
@@ -131,14 +132,52 @@ df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b
 # Create a model and save it to the object and look at the summary
 model1 = smf.ols("mpg ~ cyl", data = df).fit()
 print(model1.summary())
+
+# Plot the regression line
+sns.regplot(x = "cyl", y = "mpg", data = df)
+plt.show()
+
+# [DIY] make a second regression model of "wt" on "drat". Remember to use fit() to fit the model
+model2 = 
+
+# [DIY] Print the summary
+
+
 ```
 
 `@solution`
 ```{python}
+# Loading the libraries
+import pandas as pd
+import statsmodels.formula.api as smf
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Loading the data
+df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+# Create a model and save it to the object and look at the summary
+model1 = smf.ols("mpg ~ cyl", data = df).fit()
+print(model1.summary())
+
+# Plot the regression line
+sns.regplot(x = "cyl", y = "mpg", data = df)
+plt.show()
+
+# [DIY] make a second regression model of "wt" on "drat"
+model2 = smf.ols("drat ~ wt", data = df).fit()
+
+# [DIY] Print the summary
+print(model2.summary())
 
 ```
 
 `@sct`
 ```{python}
-
+Ex().check_function("statsmodels.formula.api.ols", 1).multi(
+  check_args("formula").has_equal_value(),
+  check_args("data").has_equal_value()
+)
+Ex().check_function("model2.summary").has_equal_output()
+success_msg("Good Job!")
 ```
