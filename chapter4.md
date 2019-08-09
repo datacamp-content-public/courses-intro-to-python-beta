@@ -103,7 +103,7 @@ The summary of the model can be called `model_name.summary()` and  specifies coe
 
 R-squared, that takes values between 0 and 1 and measures the fit of the model. Or, in other word, how much variation in our dependent variable can be explained by the variation in independent variable. Or, how accurately we can predict the value of the left-hand-side variable by looking at the value of the right-hand-side variable.
 p-value (or in this output `Pr(>|t|)`) of each of the coefficient, which represents the p-value of the test with the null hypothesis of the actual coefficient being zero (with an alternative hypothesis of it not being zero). Recall that p-value measures the size of the error that we will be making if we rejected our null hypothesis in favor of the alternative. Therefore, low p-value (less than 0.05) means that the likelihood of making an error if we claim that the slope of the line is different from zero (in other words, that our independent variable can predict our independent variable) is very small. Notice that the number 6.11e-10 is extremely small: it basically is 6.11 divided by 1 followed by 10 zeros (so, basically 0.000000000611).
-We can generate the scatter plot of our data in Python using `regplot()` function from `seaborn`. 
+We can generate the scatter plot of our data in Python using `regplot()` function from `seaborn`.
 
 `@instructions`
 - Notice that you only need to specify your variable names in function `ols()` as you are specifying the dataset to use.
