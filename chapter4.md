@@ -282,3 +282,108 @@ Ex().check_function("statsmodels.formula.api.ols", 2).multi(
 )
 success_msg("Good Job!")
 ```
+
+---
+
+## Logistic regression
+
+```yaml
+type: NormalExercise
+key: 6eae6deaaa
+xp: 100
+```
+
+Linear regression is a great tool for first steps in exploring the data. However, it might not be the best tool to model certain variables.
+
+For example, if we are modeling a variable that represents a market share of the company on the market, using linear regression might be problematic. If the slope of the line is not zero, linear regression could easily predict that certain firms would have 140% of the market share, or -40% of the market share. This is, clearly, not reasonable.
+
+Therefore, for modeling share variables we might have to use different approach.
+
+The most straight forward of the methods available for these kinds of models is the generalized linear model, which makes sure that values of the predicted variable are confined to the interval between zero and one.
+
+Logistic regression is one of the most widespread applications of the generalized linear models.
+
+`@instructions`
+- Compare the outputs of the two models on the right (both modeling `mpgShare` by use of `cyl` and `wt`): 
+the standard linear regression and the logistic regression.
+- Notice that logistic regression does not have R-squared statistics. Instead other indicator (AIC) is used to evaluate the goodness of fit.
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+# Loading the libraries
+import pandas as pd
+import statsmodels.formula.api as smf
+from statsmodels.discrete.discrete_model import Logit
+
+# Loading the data
+df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+# Create a new variable mpgShare (which will be a part of our dataset "a") and will
+# take a value of "mpg" divided by the highest value of "mpg" found in the dataset
+df["mpgShare"] = df["mpg"] / df["mpg"].max()
+
+# [DIY] run a linear regression, modeling the value of mpgShare
+# with variables "cyl" and "wt" 
+model1= 
+
+# Visualize the output of the above regression
+print(model1.summary())
+
+# Run a logistic regression, modeling the value of mpgShare
+# with variables "cyl" and "wt" 
+model2 = Logit.from_formula("mpgShare ~ cyl + wt",data = df).fit()
+
+#[DIY] visualize the output of the above regression
+
+```
+
+`@solution`
+```{python}
+# Loading the libraries
+import pandas as pd
+import statsmodels.formula.api as smf
+from statsmodels.discrete.discrete_model import Logit
+
+# Loading the data
+df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+# Create a new variable mpgShare (which will be a part of our dataset "a") and will
+# take a value of "mpg" divided by the highest value of "mpg" found in the dataset
+df["mpgShare"] = df["mpg"] / df["mpg"].max()
+
+# [DIY] run a linear regression, modeling the value of mpgShare
+# with variables "cyl" and "wt" 
+model1= smf.ols("mpgShare ~ cyl + wt", data = df).fit()
+
+# Visualize the output of the above regression
+print(model1.summary())
+
+# Run a logistic regression, modeling the value of mpgShare
+# with variables "cyl" and "wt" 
+model2 = Logit.from_formula("mpgShare ~ cyl + wt",data = df).fit()
+
+#[DIY] Visualize the output of the above regression
+print(model2.summary())
+```
+
+`@sct`
+```{python}
+Ex().check_function("statsmodels.formula.api.ols").multi(
+	check_args("formula").has_equal_value(),
+  	check_args("data").has_equal_value()
+)
+Ex().check_function("statsmodels.discrete.discrete_model.Logit.from_formula").multi(
+	check_args("formula").has_equal_value(),
+  	check_args("data").has_equal_value()
+)
+Ex().check_function("model2.summary").has_equal_output()
+success_msg("Good Job!")
+```
