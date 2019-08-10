@@ -181,3 +181,104 @@ Ex().check_function("statsmodels.formula.api.ols", 1).multi(
 Ex().check_function("model2.summary").has_equal_output()
 success_msg("Good Job!")
 ```
+
+---
+
+## Multivaraite linear regression
+
+```yaml
+type: NormalExercise
+key: 1544533360
+xp: 100
+```
+
+In previous chapter we have tried to predict the value of one variable by using the information about the other variable.
+
+In principle there is no reason why we might want to use the information in only one variable to model our variable of interest. Maybe the grade of a student in a particular class can be predicted better if we use some other information together with his/her grade in the statistics class?
+
+Multivariate linear regression allows us to do just that. With a simple line of code we can specify a multiple independent variables that could help us predict our dependent variable. (Notice that using linear regression we cannot model multiple dependent variables at the same time. So, only one left-hand-side variable at a time).
+
+Notice that adding independent variables to the regression might change coefficients associated to right-hand-side variables that were already in the model, as well as R-squared of the model. For example, by taking into account the information in variable `wt` together with the information in variable `cyl` to predict variable `mpg` allows us to increase the predictive power of the model from 79% to 83% (see R-square).
+
+`@instructions`
+- Notice that as we are using several independent variables, visualization of the regression line on the scatter plot does not make much sense.
+- Notice that the p-value of the `cyl` variable also changes if we also include `wt` in the model.
+
+`@hint`
+One can chain different functions on one object transforming it to some new object. Use this in order to solve the last task
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+# Loading the libraries
+import pandas as pd
+import statsmodels.formula.api as smf
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Loading the data
+df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+# Modeling the effect of "cyl" and "wt" on "mpg"
+model1 = smf.ols("mpg ~ cyl + wt", data = df).fit()
+print(model1.summary())
+
+#[DIY] Add another dependent variable "hp" to the regression performed above and output the summary
+model2 = 
+
+# Produce the scaterplot of the relation between "mpg" and "cyl". As you see, we can only have two variables
+sns.regplot(x = "mpg", y = "cyl", data  = df)
+plt.show()
+
+# [DIY] in one line of code, visualize the output of a linear regression
+# with "mpg" as a dependent variable and "cyl", "qsec", "gear" and "carb" as independent variables. Attention on spacing
+
+
+```
+
+`@solution`
+```{python}
+# Loading the libraries
+import pandas as pd
+import statsmodels.formula.api as smf
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Loading the data
+df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+# Modeling the effect of "cyl" and "wt" on "mpg"
+model1 = smf.ols("mpg ~ cyl + wt", data = df).fit()
+print(model1.summary())
+
+#[DIY] Add another dependent variable "hp" to the regression performed above and output the summary
+model2 = smf.ols("mpg ~ cyl + wt + hp", data = df).fit()
+print(model2.summary())
+
+# Produce the scaterplot of the relation between "mpg" and "cyl". As you see, we can only have two variables
+sns.regplot(x = "mpg", y = "cyl", data  = df)
+plt.show()
+
+# [DIY] in one line of code, visualize the output of a linear regression
+# with "mpg" as a dependent variable and "cyl", "qsec", "gear" and "carb" as independent variables
+print(smf.ols("mpg ~ cyl + qsec + gear + carb", data=df).fit().summary())
+
+```
+
+`@sct`
+```{python}
+Ex().check_function("statsmodels.formula.api.ols", 1).multi(
+	check_args("formula").has_equal_value(),
+  	check_args("data").has_equal_value()
+)
+Ex().check_function("model2.summary").has_equal_output()
+Ex().check_function("statsmodels.formula.api.ols", 2).multi(
+	check_args("formula").has_equal_value(),
+  	check_args("data").has_equal_value()
+)
+success_msg("Good Job!")
+```
