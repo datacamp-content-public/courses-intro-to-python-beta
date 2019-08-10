@@ -299,14 +299,14 @@ For example, if we are modeling a variable that represents a market share of the
 
 Therefore, for modeling share variables we might have to use different approach.
 
-The most straight forward of the methods available for these kinds of models is the generalized linear model, which makes sure that values of the predicted variable are confined to the interval between zero and one.
+The most straight forward of the methods available for these kinds of models is the generalized linear models, which makes sure that values of the predicted variable are confined to the interval between zero and one. We will use `statsmodels.discrete.dicsrete_model.Logit` for that.
 
 Logistic regression is one of the most widespread applications of the generalized linear models.
 
 `@instructions`
 - Compare the outputs of the two models on the right (both modeling `mpgShare` by use of `cyl` and `wt`): 
 the standard linear regression and the logistic regression.
-- Notice that logistic regression does not have R-squared statistics. Instead other indicator (AIC) is used to evaluate the goodness of fit.
+- Notice that logistic regression does not have R-squared statistics
 
 `@hint`
 
@@ -384,6 +384,101 @@ Ex().check_function("statsmodels.discrete.discrete_model.Logit.from_formula").mu
 	check_args("formula").has_equal_value(),
   	check_args("data").has_equal_value()
 )
+Ex().check_function("model2.summary").has_equal_output()
+success_msg("Good Job!")
+```
+
+---
+
+## Poisson regression
+
+```yaml
+type: NormalExercise
+key: a1bf7d6e76
+xp: 100
+```
+
+Linear regression might not be the best tool to model certain (other than shares) types of data. For example, is we are modeling count data (e.g. number of times a consumer has visited a particular website), OLS might predict that this number is -3. This is not possible, clearly.
+
+Other types of generalized linear models take into account of the count nature of the data.
+
+The most widespread of such models are Poisson models. The syntax of this model is similar to that of the logistic model (as both are part of `statsmodels.discrete.discrete_mdel` family).
+
+`@instructions`
+- Compare the output of the two models on the right (both modeling gear by use of mpg): the standard linear regression and the Poisson regression.
+- Notice that Poisson regression does not have R-squared statistics.
+- Run `help(statsmodels.discrete.discrete_mdel.Poisson)` and study the displayed documentation carefully.
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+# Loading the libraries
+import pandas as pd
+import statsmodels.formula.api as smf
+from statsmodels.discrete.discrete_model import Poisson
+
+# Loading the data
+df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+#[DIY] run a linear regression, modeling "gear" with "mpg"
+# (i.e. regress "mpg" on "gear")
+model1 =
+
+#[DIY] visualize the output of the model1 above
+
+
+#Run a Poisson regression, modeling "gear" with "mpg"
+# (i.e. regress "mpg" on "gear" by using a Poisson model)
+model2 = Poisson.from_formula("gear ~ mpg", data=df).fit()
+
+#[DIY] visualize the output of the model2 above
+
+```
+
+`@solution`
+```{python}
+# Loading the libraries
+import pandas as pd
+import statsmodels.formula.api as smf
+from statsmodels.discrete.discrete_model import Poisson
+
+# Loading the data
+df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+#[DIY] run a linear regression, modeling "gear" with "mpg"
+# (i.e. regress "mpg" on "gear")
+model1 = smf.ols("gear ~ mpg", data = df).fit()
+
+#[DIY] visualize the output of the model1 above
+print(model1.summary())
+
+#Run a Poisson regression, modeling "gear" with "mpg"
+# (i.e. regress "mpg" on "gear" by using a Poisson model)
+model2 = Poisson.from_formula("gear ~ mpg", data=df).fit()
+
+#[DIY] visualize the output of the model2 above
+print(model2.summary())
+```
+
+`@sct`
+```{python}
+Ex().check_function("statsmodels.formula.api.ols").multi(
+	check_args("formula").has_equal_value(),
+  	check_args("data").has_equal_value()
+)
+Ex().check_function("model1.summary").has_equal_output()
+Ex().check_function("statsmodels.discrete.discrete_model.Poisson.from_formula").multi(
+	check_args("formula").has_equal_value(),
+  	check_args("data").has_equal_value()
+)
+
 Ex().check_function("model2.summary").has_equal_output()
 success_msg("Good Job!")
 ```
