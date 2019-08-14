@@ -280,10 +280,7 @@ key: 790974df1e
 xp: 100
 ```
 
-Apart from simple data types, Python also has some complex data types which serve as "containers" for simple data types. They are:
-1. Lists
-2. Tuples
-3. Dictionaries
+Apart from simple data types, Python also has some complex data types which serve as "containers" for simple data types. For example, lists
 
 Lists are like vectors in R, or arrays in other languages. A list is a collection which is **changeable**. In Python lists are written with squared brackets.`[]`. They can contain elements of different types.
 ```
