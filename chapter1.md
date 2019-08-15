@@ -358,7 +358,7 @@ xp: 100
 ```
 
 Function is a block of code which runs only when called. Main goal of a function is to manipulate the inputs and produce an output (95 % of the time). Functions in Python are defined with `def` keyword followed by `():` where you pass your arguments. In some programming languages function body is written within curly braces, `{}`, but in Python identation plays an important role. Typical function looks like this:
-```
+```python
 def function_name(arg1, arg2):			# function has two arguments. Arg1 and arg2 names are purely arbitrary
 	"""
     Explanation what function does, 
@@ -391,6 +391,7 @@ def adder(a, b):		# argument names can be anything
   return a + b
 
 # [DIY] Create a function perimeter() which calculates the perimeter of a triangle
+# given sides `a, b, c`
 
 # Checking the function perimeter()
 perimeter(3, 4, 5)
@@ -405,14 +406,25 @@ area(3)
 
 `@solution`
 ```{python}
+# Custom function adder()
+
+def adder(a, b):		# argument names can be anything
+  return a + b
+
+# [DIY] Create a function perimeter() which calculates the perimeter of a triangle
+# given sides `a, b, c`
 def perimeter(a, b, c):
   return a + b + c
 
+# Checking the function perimeter()
+perimeter(3, 4, 5)
 
-
+# [DIY] Create a function area() which calculates the area of a circle given radius (pi = 3.14)
 def area(r):
   return r ** 2 * 3.14
 
+# Checking the function area
+area(3)
 
 ```
 
