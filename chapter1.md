@@ -359,17 +359,12 @@ xp: 100
 
 Function is a block of code which runs only when called. Main goal of a function is to manipulate the inputs and produce an output (95 % of the time). Functions in Python are defined with `def` keyword followed by `():` where you pass your arguments. In some programming languages function body is written within curly braces, `{}`, but in Python identation plays an important role. Typical function looks like this:
 ```python
-def function_name(arg1, arg2):			# function has two arguments. Arg1 and arg2 names are purely arbitrary
-	"""
-    Explanation what function does, 
-    called a docstring. 
-    It is advised that 
-    every function has one
-    """
-	function body						# this is function body
-    return some_result					# function output which starts with return keyword
+def function_name(arg1, arg2):
+
+	function body	# this is function body
+    return some_result	# function output which starts with return keyword
 ```
-To call that function we do the following:`function_name(arg1 = first_argument, arg2 = second_argument)`
+To call that function we do the following:`function_name(first_argument, second_argument)`
 
 `@instructions`
 1. Create a function `perimeter` which calculates the perimeter of a triangle given sides
