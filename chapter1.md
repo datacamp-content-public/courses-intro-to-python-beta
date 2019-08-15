@@ -222,9 +222,7 @@ Notice that Python can work with data of different types. However, you have to k
 You can check the type of any data using `type()` function.
 
 `@instructions`
-1. Define a string variable s and assign "Python" to it
-2. Define a boolean variable z and assign `True` to it
-3. Print the type of `x + y`
+Define numeric, string and Boolean variables.
 
 `@hint`
 1. Use built-in `type()` function to check for the variable type
@@ -239,28 +237,28 @@ You can check the type of any data using `type()` function.
 ```{python}
 # [DIY] define a variable x and assign 3.14 to it
 x = 3.14
-# [DIY] define a variable y and assign 2 to it
+# [DIY] define another numeric variable y and assign 2 to it
 y = 2
-# [DIY] define a variable s and assign "Python" to it
+# [DIY] define a string variable s and assign "Python" to it
 
-# [DIY] define a variable z and assign True to it
+# [DIY] define a Boolean variable z and assign True to it
 
-# [DIY] print the type of x + y
+# [DIY] check the type of a new variable x + y by printing its type into the console
 
 
 ```
 
 `@solution`
 ```{python}
-# [DIY] define a variable x and assign 3.14 to it
+# [DIY] define a numeric variable x and assign 3.14 to it
 x = 3.14
-# [DIY] define a variable y and assign 2 to it
+# [DIY] define another numeric variable y and assign 2 to it
 y = 2
-# [DIY] define a variable s and assign Python to it
+# [DIY] define a string variable s and assign "Python" to it
 s = "Python"
-# [DIY] define a variable z and assign True to it
+# [DIY] define a Boolean variable z and assign True to it
 z = True
-# [DIY] print the type of x + y
+# [DIY] check the type of a new variable x + y by printing its type into the console
 print(type(x + y))
 ```
 
