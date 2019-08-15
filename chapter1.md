@@ -75,12 +75,10 @@ xp: 100
 Arithmetic operations in Python are pretty much the same as in other mathematical tools and have the same meaning
 
 `@instructions`
-With given `x` and `y`, `print()` the followings:
-1. 5 to the power of 4
-2. Add 5 to 4
-3. Subtract 10 from 5
-4. Square root of 4
-5. Find the difference between 5 and 4
+With given `x` and `y`do the following:
+1. 6 times 7
+2. 5 to the power of 4
+3. Square root of 10 and print it to the console via `print()`
 
 `@hint`
 Another method for finding square root is to increase the number to the power of 0.5
@@ -92,45 +90,51 @@ Another method for finding square root is to increase the number to the power of
 
 `@sample_code`
 ```{python}
-# +	Add two operands or unary plus	x + y, - Subtract right operand from the left or unary minus	x - y
-# *	Multiply two operands	x * y, **	Exponent - left operand raised to the power of right	x**y (x to the power y)
+# + denotes edition of two operands x + y, - denotes the subtraction of the right operand from the left one x - y
+5+6
+7-3
+
+# * denotes multiplication x * y, ** denotes exponentiation (left operand raised to the power of right) x**y (x to the power y)
+
+#[DIY] 6 times 7
 
 #[DIY] 5 to the power of 4
-print()
-#[DIY] Add 5 to 4
-print()
-#[DIY] Subtract 10 from 5
-print()
-#[DIY] Square root of 4
-print()
-#[DIY] Find the difference between 5 and 4
-print()
+
+# You can also use print() function to display the corresponding output.
+
+# Print the outcome of raising 6 into the power of 0.7
+print(6**0.7)
+
+#[DIY] Print the square root of 10
+
+
 ```
 
 `@solution`
 ```{python}
-#+	Add two operands or unary plus	x + y, - Subtract right operand from the left or unary minus	x - y
-#*	Multiply two operands	x * y, **	Exponent - left operand raised to the power of right	x**y (x to the power y)
+# + denotes edition of two operands x + y, - denotes the subtraction of the right operand from the left one x - y
+5+6
+7-3
 
+# * denotes multiplication x * y, ** denotes exponentiation (left operand raised to the power of right) x**y (x to the power y)
+
+#[DIY] 6 times 7
+6*7
 #[DIY] 5 to the power of 4
-print(5 ** 4)
-#[DIY] Add 5 to 4
-print(4 + 5)
-#[DIY] Subtract 10 from 5
-print(5 - 10)
-#[DIY] Square root of 4
-print(4 ** 0.5)
-#[DIY] Find the difference between 5 and 4
-print(5 - 4)
+5**4
+# You can also use print() function to display the corresponding output.
+
+# Print the outcome of raising 6 into the power of 0.7
+print(6**0.7)
+
+#[DIY] Print the square root of 10
+print(10**(1/2))
+
 ```
 
 `@sct`
 ```{python}
-Ex().has_output("625")
-Ex().has_output("9")
-Ex().has_output("-5")
-Ex().has_output("2.0")
-Ex().has_output("1")
+Ex().has_output('3.1622776601683795')
 success_msg('Good job! Next to the other exercise!')
 ```
 
