@@ -72,16 +72,17 @@ key: 4713f35526
 xp: 100
 ```
 
-Arithmetic operations in Python are pretty much the same as in other mathematical tools and have the same meaning
+Arithmetic operations in Python are pretty much the same as in other mathematical tools and have the same meaning.
 
 `@instructions`
-With given `x` and `y`do the following:
+Instructions to all exercises are given in the script window using comments. Follow them step by step. Notice that depending on your machine setup you might not be readily seeing the whole script of the exercise. Just scroll down in the script window to make sure you read it to the end.
+Do the following:
 1. 6 times 7
 2. 5 to the power of 4
 3. Square root of 10 and print it to the console via `print()`
 
 `@hint`
-Another method for finding square root is to increase the number to the power of 0.5
+Another method for finding square root is to increase the number to the power of 0.5.
 
 `@pre_exercise_code`
 ```{python}
@@ -235,30 +236,56 @@ Define numeric, string and Boolean variables.
 
 `@sample_code`
 ```{python}
-# [DIY] define a variable x and assign 3.14 to it
+# Define a variable x and assign 3.14 to it
 x = 3.14
+
+# Define a variable c and assign "Text" to it
+c = "Text"
+
+# Define a variable e and assign False to it
+e = False
+
+# Check the type of c and print it out
+print(type(c))
+
+# Check the type of e and print it out
+print(type(e))
+
 # [DIY] define another numeric variable y and assign 2 to it
-y = 2
+
 # [DIY] define a string variable s and assign "Python" to it
 
 # [DIY] define a Boolean variable z and assign True to it
 
-# [DIY] check the type of a new variable x + y by printing its type into the console
+# [DIY] check the type of x + y by printing its type into the console
 
 
 ```
 
 `@solution`
 ```{python}
-# [DIY] define a numeric variable x and assign 3.14 to it
+# Define a numeric variable x and assign 3.14 to it
 x = 3.14
+
+# Define a variable c and assign "Text" to it
+c = "Text"
+
+# Define a variable e and assign False to it
+e = False
+
+# Check the type of c and print it out
+print(type(c))
+
+# Check the type of e and print it out
+print(type(e))
+
 # [DIY] define another numeric variable y and assign 2 to it
 y = 2
 # [DIY] define a string variable s and assign "Python" to it
 s = "Python"
 # [DIY] define a Boolean variable z and assign True to it
 z = True
-# [DIY] check the type of a new variable x + y by printing its type into the console
+# [DIY] check the type of x + y by printing its type into the console
 print(type(x + y))
 ```
 
@@ -282,7 +309,7 @@ key: 790974df1e
 xp: 100
 ```
 
-Apart from simple data types, Python also has some complex data types which serve as "containers" for simple data types. For example, lists
+Apart from simple data types, Python also has some complex data types which serve as "containers" for simple data types. For example, lists.
 
 Lists are like vectors in R, or arrays in other languages. A list is a collection which is **changeable**. In Python lists are written with squared brackets.`[]`. They can contain elements of different types.
 ```
@@ -290,12 +317,12 @@ a = [1, 2.0, "Python", True]
 ```
 
 `@instructions`
-1. Create a list `a` which contains an integer, boolean and a string in this order
-2. Print the type of the 2nd element of `a`
+1. Create a list `a` which contains an integer, boolean and a string in this order.
+2. Print the type of the 2nd element of `a`.
 
 `@hint`
-- Python is zero indexed language
-- For indexing, squared brackets are used
+- Python is zero indexed language.
+- For indexing, squared brackets are used.
 
 `@pre_exercise_code`
 ```{python}
@@ -357,21 +384,21 @@ key: 32017a34d1
 xp: 100
 ```
 
-Function is a block of code which runs only when called. Main goal of a function is to manipulate the inputs and produce an output (95 % of the time). Functions in Python are defined with `def` keyword followed by `():` where you pass your arguments. In some programming languages function body is written within curly braces, `{}`, but in Python identation plays an important role. Typical function looks like this:
+Function is a block of code which runs only when called. Main goal of a function is to manipulate the inputs and produce an output. Functions in Python are defined with `def` keyword followed by `():` where you pass your arguments. In some programming languages function body is written within curly braces, `{}`, but in Python identation plays an important role. Typical function looks like this:
 ```python
 def function_name(arg1, arg2):
 
 	function body	# this is function body
     return some_result	# function output which starts with return keyword
 ```
-To call that function we do the following:`function_name(first_argument, second_argument)`
+To call that function we do the following:`function_name(first_argument, second_argument)`.
 
 `@instructions`
 1. Create a function `perimeter` which calculates the perimeter of a triangle given sides
 2. Create a function `area` which calculates the area of a circle given radius
 
 `@hint`
-Use `def` to define a function and do not forget about identation
+Use `def` to define a function and do not forget about identation.
 
 `@pre_exercise_code`
 ```{python}
@@ -380,7 +407,7 @@ Use `def` to define a function and do not forget about identation
 
 `@sample_code`
 ```{python}
-# Custom function adder()
+# Define a custom function adder()
 
 def adder(a, b):		# argument names can be anything
   return a + b
@@ -401,20 +428,19 @@ area(3)
 
 `@solution`
 ```{python}
-# Custom function adder()
+# Define a custom function adder()
 
-def adder(a, b):		# argument names can be anything
-  return a + b
+def adder(a, b):		# here you are defining new variables as arguments
+  return a + b			# here, in the body of the function, you are using those new variables that  you defined as arguments of the function.
 
-# [DIY] Create a function perimeter() which calculates the perimeter of a triangle
-# given sides `a, b, c`
+# [DIY] Create a function perimeter() which calculates the perimeter of a triangle  given sides `a, b, c`
 def perimeter(a, b, c):
   return a + b + c
 
 # Checking the function perimeter()
 perimeter(3, 4, 5)
 
-# [DIY] Create a function area() which calculates the area of a circle given radius (pi = 3.14)
+# [DIY] Create a function area() which calculates the area of a circle given radius (and, of course the value of pi=3.14)
 def area(r):
   return r ** 2 * 3.14
 
