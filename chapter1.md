@@ -395,21 +395,24 @@ key: 32017a34d1
 xp: 100
 ```
 
-Function is a block of code which runs only when called. Main goal of a function is to manipulate the inputs and produce an output. Functions in Python are defined with `def` keyword followed by `():` where you pass your arguments. In some programming languages function body is written within curly braces, `{}`, but in Python identation plays an important role. Typical function looks like this:
+Function is a block of code which runs only when called. Main goal of a function is to manipulate inputs and produce an output. Functions in Python are defined with `def` keyword followed by `():` where you can pass your arguments.
+
+In some programming languages function body is written within curly braces, `{}`, but in Python indentation plays an important role. Typical function looks like this:
 ```python
 def function_name(arg1, arg2):
 
-	function body	# this is function body
-    return some_result	# function output which starts with return keyword
+	function body	# this is a function body
+    return some_result	# function output should start with return
 ```
-To call that function we do the following:`function_name(first_argument, second_argument)`.
+To call that function we will need to use the following syntax:
+	`function_name(first_argument, second_argument)`
 
 `@instructions`
 1. Create a function `perimeter` which calculates the perimeter of a triangle given sides
 2. Create a function `area` which calculates the area of a circle given radius
 
 `@hint`
-Use `def` to define a function and do not forget about identation.
+Use `def` to define a function and do not forget about indentation.
 
 `@pre_exercise_code`
 ```{python}
@@ -423,13 +426,13 @@ Use `def` to define a function and do not forget about identation.
 def adder(a, b):		# argument names can be anything
   return a + b
 
-# [DIY] Create a function perimeter() which calculates the perimeter of a triangle
-# given sides `a, b, c`
+# [DIY] Create (i.e. Define) a function perimeter() which calculates the perimeter of a triangle
+# given its sides `a, b, c`
 
 # Checking the function perimeter()
 perimeter(3, 4, 5)
 
-# [DIY] Create a function area() which calculates the area of a circle given radius (pi = 3.14)
+# [DIY] Create a function area() which calculates the area of a circle given its radius (and, of course, the value of pi = 3.14)
 
 
 # Checking the function area
@@ -444,7 +447,7 @@ area(3)
 def adder(a, b):		# here you are defining new variables as arguments
   return a + b			# here, in the body of the function, you are using those new variables that  you defined as arguments of the function.
 
-# [DIY] Create a function perimeter() which calculates the perimeter of a triangle  given sides `a, b, c`
+# [DIY] Create (i.e. Define) a function perimeter() which calculates the perimeter of a triangle  given its sides `a, b, c`
 def perimeter(a, b, c):
   return a + b + c
 
