@@ -157,14 +157,16 @@ key: 865df8eb11
 xp: 100
 ```
 
-Variables can be understood as containers which store data in them.
-Unlike other programming languages, there is no special keyword to declare a variable.
-As soon as you assign some value to it, the variable is created.
-Not only values, but also operations, functions, processes can be assigned to a variable.
-For assignment `=` sign is used.
+Variables can be understood as containers where we can store our data.
+
+Unlike other programming languages, there is no special keyword to declare a variable in Python.
+
+As soon as you assign some value to a new handle, the variable by the name of that handle is created. You can (should) use `=` sign for assignment.
+
+Python is a flexible language. You can assign many things to a variable, not only numeric values (i.e. data). For example, operations, functions, processes, images and whole datasets can be assigned to a variable in Python.
 
 `@instructions`
-Create the variables
+Create a few variables.
 
 `@hint`
 `+` operator is used for addition
