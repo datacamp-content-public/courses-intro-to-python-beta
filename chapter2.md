@@ -11,13 +11,17 @@ key: a8747afde6
 xp: 100
 ```
 
-The bare bone of Python data science ecosystem is NumPy array. Other tools like Pandas, Matplotlib, Scikit-learn are all based and built on NumPy arrays. That's why, understanding the functionality of NumPy is crucial. NumPy arrays are basically equivalent of matrices in Matlab and vectors in R.
+The bare bone of Python data science ecosystem is NumPy array. Thinks of this, and other tools, as procedures already pre-programmed for your use in Python. even though they might not be the most user-friendly pieces of software, they are definitely very powerful and versatile tools.
+
+Other similar tools that you might have heard of (like Pandas, Matplotlib, Scikit-learn) are all based and built on NumPy arrays. That's why, understanding the functionality of NumPy is crucial.
+
 In order to use the functionality of NumPy one need to import it. In order to import NumPy you need to use the `import` keyword.
 ```
 import numpy as np
 ```
-As you notice, we imported NumPy as **np**. Np here is an alias we gave it so that we don't have to write **numpy** every time.
-Here are some generally accepted aliases that you may come across frequently:
+As you notice, we imported NumPy as **np**. **np** here is an alias we gave to NumPy so that we don't have to write **numpy** every time we want to use this tool.
+
+Here are some generally accepted aliases that you may come across frequently (we'll discuss their functionalities in later chapters):
 1. Numpy - np
 2. Pandas - pd
 3. Matplotlib.pyplot - plt
