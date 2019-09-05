@@ -320,9 +320,9 @@ key: 790974df1e
 xp: 100
 ```
 
-Apart from simple data types, Python also has some complex data types which serve as "containers" for simple data types. For example, lists.
+Apart from simple data types, Python also has some complex types of data which serve as "containers" for simple data types. For example, lists.
 
-Lists are like vectors in R, or arrays in other languages. A list is a collection which is **changeable**. In Python lists are written with squared brackets.`[]`. They can contain elements of different types.
+Lists are like vectors, or arrays in other languages. A list is a collection of items (elements) which is **changeable**. In Python lists are written with squared brackets.`[]`. They can contain elements of different types.
 ```
 a = [1, 2.0, "Python", True]
 ```
@@ -347,11 +347,11 @@ def sanity_check_list(obj):
 # Some sample list for reference
 b = ["string", 4, 5.23, False]
 
-# [DIY] Create a list `a` which contains an integer, boolean and a string in this order
+# [DIY] Create a list `a` which contains an integer, boolean and a string in this exact order
 
 
 
-# Sanity check. Do not edit these lines
+# This evaluates your work up to this point. Please do not edit the following line
 sanity_check_list(a)
 
 # [DIY] Print the type of the 2nd element of `a`
@@ -364,10 +364,10 @@ sanity_check_list(a)
 # Some sample list for reference
 b = ["string", 4, 5.23, False]
 
-# [DIY] Create a list `a` which contains an integer, boolean and a string in this order
+# [DIY] Create a list `a` which contains an integer, boolean and a string in this exact order
 a = [2, True, "A"]
 
-# Sanity check. Do not edit these lines. If these functions fail, check the variable definitions
+# This evaluates your work up to this point. Please do not edit the following line
 sanity_check_list(a)
 
 
