@@ -152,9 +152,17 @@ key: 5bf567c736
 xp: 100
 ```
 
-Data frames are consisting of NumPy arrays which also have names (columns) and indexes (rows) attached to them. `pd.DataFrame()` is the main function to create or convert existing data to a pandas data frame object (hereafter dataframe). Data frame not only support almost everything NumPy supports, but also it has additional functionality like querying, merging, summarizing, data reading and even plotting!
-Indexing a dataframe is similar to indexing a list. Instead of number, you can use column name as and index in squared brackets like `dataframe["column_name"]` or `dataframe.column_name`. If you index a column which does not exist and assign a value(s) to it, then this column will be automatically created with given value(s).
-You can not only give custom values, but also use existing columns to calculate the new columns too. The notion is the same as variable operations in Python. Easy as that!
+Pandas is a tool that allow you to old whole datasets (organized as spreadsheets) as separate objects. They are referred to as Data Frames.
+
+Pandas data frames consist of NumPy arrays which also have variable names (columns) and observation indexes (rows) attached to them.
+
+`pd.DataFrame()` is the main function to create (or convert existing data to) a pandas data frame object. Pandas data frame as very useful special functionalities (that NumPy does not have), like querying, merging, summarizing, data reading, (some) plotting etc.
+
+Indexing a data frame is similar to indexing a list. Instead of a number, you can use column name as an index in squared brackets like `dataframe["column_name"]` (or, alternatively, `dataframe.column_name`). If you refer a column which does not exist and assign a value(s) to it, then this column will be automatically created with given value(s).
+
+To create new columns in data frame (i.e. variables), you can use already existing columns along with custom values and desired operations.
+
+Once you have your pandas data frame, you can apply a long array of readily-coded functions to your data, by referring to them as `dataframe.function()`
 
 `@instructions`
 1. Create an array of sales [10, 11, 23, 42, 12]
