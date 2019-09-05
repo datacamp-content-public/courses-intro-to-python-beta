@@ -16,15 +16,19 @@ skills: 2
 
 Welcome to the short introductory tutorial for Python.
 Here is how this tutorial works: In the editor (in the top right quadrant of the screen) you will be able to write Python code to solve assigned problems.
-In order to make your code more understandable to yourself and others, you can use comments, explanations.`#` symbol indicates the start of a line of comment. This line is simply ignored by the machine.
-You can also write more substantial comments over multiple lines. For this you should use triple quotation marks  as `"""Comment that can be in multiple lines"""`.
-For each chapter, you will have a part of script that is already developed, and part that requires your input. The latter parts will be explicitly marked with `[DIY]`. It is imperative that you develop these parts of the code before submitting your answer for the chapter.
-To pre-test your solutions, you can use "Run Code" button. Python output, including problems will be displayed in IPython Shell window bellow the script.
+In order to make your code more understandable to yourself and others, you can use comments, explanations.`#` symbol indicates the start of a comment line. This line is simply ignored by the machine.
+You can also write more substantial comments over multiple lines. For this you should use triple quotation marks  as `"""Comment that can be in multiple lines"""`. However, in this case you will also need to indicate the end of the comment, again by using triple quotes.
+
+For each chapter, you will have a part of the script that is already developed, and a part that requires your input. The latter parts will be explicitly marked with `[DIY]` [i.e. Do It Youself!]. It is imperative that you develop these parts of the code before submitting your answer for the chapter.
+
+To pre-test your solutions, you can use "Run Code" button. Python output, including problems with your code, will be displayed in IPython Shell window bellow the script.
+
 Note that you can also write commands directly in the shell and execute them by clicking enter, but these will not be saved for your future reference.
+
 Once you are happy with results delivered by your script in the editor (script.py), you can submit your code via "Submit Answer" button.
 
 `@instructions`
-Make the text you see a one line comment
+Make the text in black a one line comment
 
 `@hint`
 Put `#` at the beginning of a line to comment it out
@@ -47,13 +51,13 @@ line
 ignored
 """
 # [DIY]
-text supposed to be a one line comment
+This text should be a one line comment
 
 ```
 
 `@solution`
 ```{python}
-#text supposed to be a one line comment
+#This text should be a one line comment
 ```
 
 `@sct`
