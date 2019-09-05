@@ -78,15 +78,19 @@ xp: 100
 
 Arithmetic operations in Python are pretty much the same as in other mathematical tools and have the same meaning.
 
+In order to promote a good habit of coding, from now on we will extensively use comments in the script to communicate the nature of the exercise.
+
+Please concentrate on the script.py window, understand parts of already developed code and carry out every task that is marked by `[DIY]` before submitting your solution.
+
+Notice that depending on your machine setup, you might not be readily seeing the whole script of the exercise. Just scroll down within the script window to make sure you read it to the end.
+
 `@instructions`
-Instructions to all exercises are given in the script window using comments. Follow them step by step. Notice that depending on your machine setup you might not be readily seeing the whole script of the exercise. Just scroll down in the script window to make sure you read it to the end.
-Do the following:
-1. 6 times 7
-2. 5 to the power of 4
-3. Square root of 10 and print it to the console via `print()`
+For the rest of the chapter, we will be using comments in the script to give you instructions.
+
+THerefore, we will be ignoring this "Instructions" space. As well as hints that you see bellow.
 
 `@hint`
-Another method for finding square root is to increase the number to the power of 0.5.
+Another method for finding square root is to raise a number to the power of 0.5.
 
 `@pre_exercise_code`
 ```{python}
