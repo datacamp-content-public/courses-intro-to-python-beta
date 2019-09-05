@@ -223,13 +223,14 @@ xp: 100
 
 There are three most common data types in Python.
 
-numerics (`int`, `float`) - these are values like 3 and 4.123. Notice that 3 is an integer, wile 4.123 is not. It is a fraction, which is referred in python as `float`. Bear in mind that Python treats `int` and `float` differently. 
+numerics (`int`, `float`) - these are values like 3 and 4.123. Notice that 3 is an integer, wile 4.123 is not. It is a fraction, which is referred to in Python as `float`. Bear in mind that Python treats `int` and `float` differently. 
 
-strings (`str`) - these are textual values like “dog” and “cat”, "453". Did you notice how we made int 453 a string? In order to cast something as str we add quotation marks around it `" "`. 
+strings (`str`) - these are textual values like “dog” and “cat”, "453". Did you notice how we made a number (technically an integer) 453 a string? In order to cast something as `str` we add quotation marks around it `" "`. 
 
-boolean (`bool`) - these are booleans that take only two values: `True`, `False`. They are used to evaluate certain expressions.
+boolean (`bool`) - these are booleans that take only two values: `True`, `False`. They are used to evaluate correctness of certain expressions.
 
 Notice that Python can work with data of different types. However, you have to keep in mind the type of every data in order not to ask Python compute something you did not intend to.
+
 You can check the type of any data using `type()` function.
 
 `@instructions`
