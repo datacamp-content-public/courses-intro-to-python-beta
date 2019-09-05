@@ -74,7 +74,11 @@ key: 4aa7786816
 xp: 100
 ```
 
-NumPy arrays are much like Python lists, but different from lists, they are very efficient in numerical calculations. `np.array()` is the main function to create or convert existing data to a NumPy nparray (hereafter array). Arrays support all kinds of calculations including addition, division, subtraction, multiplication, transformation and etc.
+NumPy arrays are much like Python lists, but different from lists, they are very efficient in numerical calculations.
+
+`np.array()` is the main function to create or convert existing data to a NumPy array (hereafter array). Notice that this function will only work if you have imported NumPy with alias `np`.
+
+Arrays support all kinds of calculations including addition, division, subtraction, multiplication, transformation and etc.
 
 `@instructions`
 1. Perform the subtraction
@@ -94,20 +98,20 @@ NumPy arrays are much like Python lists, but different from lists, they are very
 # Importing Numpy
 import numpy as np
 
-# Creating an array
+# Creating a NumPy array
 a = np.array([1, 2, 3, 4])
 
 # Adding 4 to each element
-print(a + 4)
+a + 4
 
 # [DIY] Subtract 4 from each element
-print()
+
 
 # Multiplying each element by 2
-print(a * 2)
+a * 2
 
 # [DIY] Dividing each element by 2
-print()
+
 ```
 
 `@solution`
