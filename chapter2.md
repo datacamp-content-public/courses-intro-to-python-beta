@@ -162,7 +162,7 @@ Indexing a data frame is similar to indexing a list. Instead of a number, you ca
 
 To create new columns in data frame (i.e. variables), you can use already existing columns along with custom values and desired operations.
 
-Once you have your pandas data frame, you can apply a long array of readily-coded functions to your data, by referring to them as `dataframe.function()`
+Once you have your pandas data frame, you can apply a long list of readily-coded functions to your data, by referring to them as `dataframe.function()`, or as `dataframe["column_name"].function()`.
 
 `@instructions`
 1. Create an array of sales [10, 11, 23, 42, 12]
@@ -187,33 +187,41 @@ import pandas as pd
 import numpy as np
 
 
-# Create a list of departments
+# Create a list of departments in your company
 departments = ["First", "Second", "Third", "Fourth", "Fifth"]
 
 # [DIY] Create a NumPy array named sales with values 10, 11, 23, 42, 12
+sales = np.array([10, 11, 23, 42, 12])
 
-
-# Create a dataframe. Pandas works with both Python and NumPy data types!
+# Create a pandas dataframe. Pandas works with both Python and plain NumPy data types.
 df = pd.DataFrame({"dept" : departments, "sales": sales})
 
-# Minimum of the sales
-print(df["sales"].min())
+# Now we can apply Pandas functions to our data.
+# Calculate the minimum of sales variable (i.e. sales made by the department who achieved least sales)
+print(df.sales.min())
 
-# [DIY] Maximum of the sales
+# [DIY] Calculate the maximum of sales variable
 
+
+# We can also calculate total sales
+print(df["sales"].sum())
 
 # Create a column named bonus_pct and assign 0.1 to it
 df["bonus_pct"] = 0.1
+# notice that as you are adding this column to our data frame, it will have the length of the data frame itself
+# The length of our data frame is 5 (we have five departments). Then above assignment will assign 0.1 to each of these five entries
 
-# Create a column bonus which is the multiplication of sales and bonus_pct
+# Now we can use this new variable (which technically is a constant, as it does not vary across the entries) to create further variables
+# Create a new variable/column "bonus" which is the multiplication of sales and bonus_pct
 df["bonus"] = df["sales"] * df["bonus_pct"]
 
 # Print the dataframe
 print(df)
 
-# [DIY] Find total bonuses
+# [DIY] Find the total amount of bonuses
 
-# Summary statistics of numerical values of the dataframe
+
+# We can also calculate the summary statistics of all numeric variables in the data frame
 print(df.describe())
 ```
 
@@ -224,37 +232,41 @@ import pandas as pd
 import numpy as np
 
 
-# Create a list of departments
+# Create a list of departments in your company
 departments = ["First", "Second", "Third", "Fourth", "Fifth"]
 
 # [DIY] Create a NumPy array named sales with values 10, 11, 23, 42, 12
 sales = np.array([10, 11, 23, 42, 12])
 
-# Create a dataframe. Pandas works with both Python and NumPy data types!
+# Create a pandas dataframe. Pandas works with both Python and plain NumPy data types.
 df = pd.DataFrame({"dept" : departments, "sales": sales})
 
-# Minimum of the sales
+# Now we can apply Pandas functions to our data.
+# Calculate the minimum of sales variable (i.e. sales made by the department who achieved least sales)
 print(df.sales.min())
 
-# [DIY] Maximum of the sales
+# [DIY] Calculate the maximum of sales variable
 print(df["sales"].max())
 
-# Total sales
+# We can also calculate total sales
 print(df["sales"].sum())
 
 # Create a column named bonus_pct and assign 0.1 to it
 df["bonus_pct"] = 0.1
+# notice that as you are adding this column to our data frame, it will have the length of the data frame itself
+# The length of our data frame is 5 (we have five departments). Then above assignment will assign 0.1 to each of these five entries
 
-# Create a column bonus which is the multiplication of sales and bonus_pct
+# Now we can use this new variable (which technically is a constant, as it does not vary across the entries) to create further variables
+# Create a new variable/column "bonus" which is the multiplication of sales and bonus_pct
 df["bonus"] = df["sales"] * df["bonus_pct"]
 
 # Print the dataframe
 print(df)
 
-# [DIY] Find total bonuses
+# [DIY] Find the total amount of bonuses
 print(df["bonus"].sum())
 
-# Summary statistics of numerical values of the dataframe
+# We can also calculate the summary statistics of all numeric variables in the data frame
 print(df.describe())
 ```
 
