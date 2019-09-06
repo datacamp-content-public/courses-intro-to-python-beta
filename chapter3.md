@@ -17,17 +17,26 @@ We will cover two types of tests:
 
 - proportion tests (z-test)
 - mean tests (t-tests)
+
 Python is flexible enough to allow its user specify various characteristics for tests (e.g. null hypothesis, alternative hypothesis, confidence level).
 
-Before going into details let’s load the data.
+Before going into details we will need to load our data.
 
-Recall how we calculated the sum of a column. In order to calculate the mean and standard error we use the similar notation:
+Remember how we calculated the sum of a variable? In order to calculate the mean and standard deviation we use the similar notation:
 ```
-df.colname.mean()
+dataframe_name["variable_name"].mean()
 
-df.colname.std()
+dataframe_name["variable_name"].std()
 
 ```
+or
+```
+dataframe_name.variable_name.mean()
+
+dataframe_name.variable_name.std()
+
+```
+Notice that the second option (dot notation) is more concise, as it contains less characters. This is a better practice. Let's stick to it.
 
 `@instructions`
 
@@ -45,23 +54,31 @@ df.colname.std()
 # Loading pandas
 import pandas as pd
 
-# Loading the dataset from seaborn library. We can use URL to load the data from the Web
+# Loading the dataset in .csv (comma separated value) format from a location on the web.
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+# As you see, you can directly use the URL of the data file.
 
-# Take a glimpse at the dataset to understand how it looks like
+# Now your machine sees your data, but you do not.
+# You can visualize/display your data by simply calling it out:
+df
+
+# This is a short/small dataset. So, displaying it completely might work.
+# However, most datasets will be so large that this will be useless.
+# Instead you can use .head() function, which will allow you to see only first few observations of your dataset
+# This will be sufficient for understanding what variables you are dealing with
 df.head()
 
-# [DIY] Calculate the mean of the "disp" column using dot notation
+# Once you see variable names, you can refer to them.
+# [DIY] Calculate the mean of the "disp" variable using dot notation
 
 
-# [DIY] Calculate the standard deviation of the "disp" column using dot notation
+# [DIY] Calculate the standard deviation of the "disp" variable using dot notation
 
 
 # One can also calculate the means of all numeric columns in a dataset
 df.mean()
 
 # [DIY] Calculate the standard deviation of all numeric variables
-
 
 ```
 
@@ -70,16 +87,25 @@ df.mean()
 # Loading pandas
 import pandas as pd
 
-# Loading the dataset from seaborn library. We can use URL to load the data from the Web
+# Loading the dataset in .csv (comma separated value) format from a location on the web.
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+# As you see, you can directly use the URL of the data file.
 
-# Take a glimpse at the dataset to understand how it looks like
+# Now your machine sees your data, but you do not.
+# You can visualize/display your data by simply calling it out:
+df
+
+# This is a short/small dataset. So, displaying it completely might work.
+# However, most datasets will be so large that this will be useless.
+# Instead you can use .head() function, which will allow you to see only first few observations of your dataset
+# This will be sufficient for understanding what variables you are dealing with
 df.head()
 
-# [DIY] Calculate the mean of the "disp" column using dot notation
+# Once you see variable names, you can refer to them.
+# [DIY] Calculate the mean of the "disp" variable using dot notation
 df.disp.mean()
 
-# [DIY] Calculate the standard deviation of the "disp" column using dot notation
+# [DIY] Calculate the standard deviation of the "disp" variable using dot notation
 df.disp.std()
 
 # One can also calculate the means of all numeric columns in a dataset
