@@ -387,7 +387,7 @@ T-test is the test on the mean of the variable. Using this test we will be able 
 
 And all this, of course, based on the sample of the data.
 
-For this we will use a different data, data on characteristics of iris flowers from `seaborn` package. .
+For this we will use a different data, data on characteristics of iris flowers that we can directly load from within the `seaborn` package.
 
 The function we will need is `ttest_1samp` from `scipy.stats`. This is a two-sided test for the null hypothesis that the expected value (mean) of a sample of independent observations `a` is equal to the given population mean, `popmean`
 
@@ -409,29 +409,29 @@ Except that now, instead of calculating the number of observations qualifying of
 ```{python}
 # Importing packages
 import seaborn as sns
-from scipy.stats import ttest_1samp
+from scipy.stats import ttest_1samp as tt1
 
 # Loading the data
 df = sns.load_dataset("iris")
 
 # Perform the t-test on sepal length against 5.6
-print(ttest_1samp(df.sepal_length, popmean = 5.6))
+tt1(df.sepal_length, popmean = 5.6)
 
 # [DIY] Perform the t-test on sepal width against 3
-
+ttest_1samp(df.sepal_width, popmean = 3)
 ```
 
 `@solution`
 ```{python}
 # Importing packages
 import seaborn as sns
-from scipy.stats import ttest_1samp
+from scipy.stats import ttest_1samp as tt1
 
 # Loading the data
 df = sns.load_dataset("iris")
 
 # Perform the t-test on sepal length against 5.6
-print(ttest_1samp(df.sepal_length, popmean = 5.6))
+tt1(df.sepal_length, popmean = 5.6)
 
 # [DIY] Perform the t-test on sepal width against 3
 ttest_1samp(df.sepal_width, popmean = 3)
