@@ -254,17 +254,17 @@ xp: 100
 ```
 
 Alternative hypothesis
-In the previous chapter we have not specified the alternative hypothesis. Instead, R automatically performed a two-sided test. This is a default option.
+In the previous chapter we have not specified the alternative hypothesis. Instead, Python automatically performed a two-sided test. This is a default option.
 
-We can, of course, specify the alternative hypothesis we want to work this.
+We can, of course, specify the alternative hypothesis we want to work with.
 
-This is imply an additional argument in our `scipy.stats.binom_test` function. This argument is `alternative`, and takes three values “two-sided”, “less” and “greater”.
+This is imply an additional argument in our `scipy.stats.binom_test` function. This argument is `alternative`, and takes three values `“two-sided”`, `“less”` and `“greater”`.
 
 On the right you see the same test from last chapter executed twice. First without specifying alternative hypothesis. Then with the specification. This clearly makes no difference.
 
 However, if we want to perform a one-sided test checking whether we have any statistical evidence that the share of am=0 cars is less than 0.5, we have to specify the argument `alternative="less”`
 
-Notice that in this case the p-value is 89% which means that we do not find statistically significant evidence to reject our null hypothesis in favor of the alternative.
+Notice that in this case the p-value is 89% which means that we (again) do not find sufficient evidence to reject our null hypothesis in favor of the alternative.
 
 `@instructions`
 - Simply change the value of the `alternative` in order to test whether the share of am=0 cars is more than 0.5.
@@ -297,12 +297,14 @@ binom_test(x=19, n=32, p=0.5, alternative="two-sided")
 #perform the test checking whether the share of am=0 cars is less than 0.5
 binom_test(x=19, n=32, p=0.5, alternative="less")
 
-#[DIY] perform the test checking whether the share of am=0 cars is greater than 0.5
+#[DIY] perform the t-test checking whether the share of am=0 cars is greater than 0.5
+binom_test(x=19, n=32, p=0.5, alternative="greater")
 
+#[DIY] perform the t-test checking whether the share of cars with less than 6 cylinders is greater than 20%
+df.cyl.value_counts()
+binom_test(x=11, n=32, p=0.2, alternative="greater")
 
-#[DIY] perform the test checking whether the share of cars with less than 6 cylinders is greater than 20%
-
-
+# Try to formulate your conclusion after calucating the p-value of the test every time!
 ```
 
 `@solution`
@@ -323,13 +325,14 @@ binom_test(x=19, n=32, p=0.5, alternative="two-sided")
 #perform the test checking whether the share of am=0 cars is less than 0.5
 binom_test(x=19, n=32, p=0.5, alternative="less")
 
-#[DIY] perform the test checking whether the share of am=0 cars is greater than 0.5
-binom_test(x=19, n=32, p=0.5, alternative="greater")
+#[DIY] perform the t-test checking whether the share of am=0 cars is greater than 0.5
 
-#[DIY] perform the test checking whether the share of cars with less than 6 cylinders is greater than 20%
-df.cyl.value_counts()
-binom_test(x=11, n=32, p=0.2, alternative="greater")
 
+#[DIY] perform the t-test checking whether the share of cars with less than 6 cylinders is greater than 20%
+
+
+
+# Try to formulate your conclusion after calucating the p-value of the test every time!
 ```
 
 `@sct`
