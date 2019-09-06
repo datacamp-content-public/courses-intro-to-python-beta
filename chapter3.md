@@ -139,7 +139,10 @@ This can help us answer the questions like:
 
 - is the proportion of female students at SKEMA equal to 0.5.
 - is the proportion of smokers in France equal to 0.15.
-If you recall the lecture, for conducting Z-test you do not need much calculations on your sample data. The only thing you need to know is the proportion of observations that qualify to belong to the sub-sample you are interested in (e.g. a “female SKEMA student”, or a “French smoker” in examples above).
+
+For conducting Z-test you do not need much calculations on your sample data. The only thing you need to know is the proportion of observations that qualify to belong to the sub-sample you are interested in (e.g. a “female SKEMA student”, or a “French smoker” in examples above).
+
+We will use the dataset on cars in the US for learning purposes. This contains a list of 32 cars and their characteristics.
 
 In the simplest example involving the data at hand, we can ask the question whether the share of cars with variable “am” being equal to 0 is equal to 50%.
 
@@ -147,12 +150,11 @@ Function used for z-testing is `scipy.stats.binom_test`. It requires three argum
 
 Output of the test gives rich information about the test:
 
-- It specifies the alternative hypothesis (this is a default option, we can adjust this in next chapter)
+- It specifies the alternative hypothesis (by default it is set to conduct a two-sided test, so the alternative hypothesis is that the share is not equal to the proportion specified in the null hypotheses. However, we will see how to adjust this in next chapter)
 - It specifies the confidence level and interval
-- It also gives us the proportion that we observed in our sample data
-- Most importantly it gives us the p-value of the test.
+- However, by default, it only returns the most important piece of information - the p-value of the test
 
-This value can be understood as the probability that we are making a mistake if we reject our null hypothesis in favor of the alternative one. In this case this probability is 38% which is very high (anything above 10% is high), which would prompt us to conclude that we do not have enough statistical evidence to claim that the share of cars with am=0 was not 50% in the population!
+This value can be understood as the probability that we are making a mistake if we reject our null hypothesis in favor of the alternative one. In this case this probability is 38% which is very high (anything above 10% is high), which would prompt us to conclude that we do not have enough statistical evidence to claim that the share of cars with am=0 was not 50% in the population.
 
 `@instructions`
 - Use `value_counts()` function to display th frequency distribution of the desired varible
@@ -176,17 +178,23 @@ from scipy.stats import binom_test
 # Load the dataset
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-# Display the distribution of variable "am"
+# In order to conduct a test we need our three inputs.
+# Nul hypotheses is whether the share of cars with am=0 is equal to 50%. This (0.5 - a share!) is out first input (p).
+# The two other inputs are the number of total observations in our dataset (n) and the number of observations satisfying the condition we are testing for [i.e. am=0] (x)
+# We can get both of this information by diplaying (not plotting!) a simple frequency distribution of our am variable
+# We can do this by using .value_counts() function
 df.am.value_counts()
 
-# Running our test given the frequency distributions where "am" = 0
+# This shows that x=19.
+# By adding all frequencies, we can get the total number of observations in the dataset (n=32)
+# Now we are ready to run the test (i.e. calculating the p-value of our test):
 binom_test(x = 19, n = 32, p = 0.5)
 
 # [DIY] Calculate how many cars in the dataset have less than 6 cylinders
+df.cyl.value_counts()
 
-
-# [DIY] Test whether we have enough statistical evidence to claim that the share of cars with less than 6 cilinders is not 60%
-
+# [DIY] Test (calculate the p-value) whether we have enough statistical evidence to claim that the share of cars with less than 6 cilinders is not 60%
+binom_test(x = 11, n = 32, p = 0.6)
 
 ```
 
@@ -199,17 +207,23 @@ from scipy.stats import binom_test
 # Load the dataset
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-# Display the distribution of variable "am"
+# In order to conduct a test we need our three inputs.
+# Nul hypotheses is whether the share of cars with am=0 is equal to 50%. This (0.5 - a share!) is out first input (p).
+# The two other inputs are the number of total observations in our dataset (n) and the number of observations satisfying the condition we are testing for [i.e. am=0] (x)
+# We can get both of this information by diplaying (not plotting!) a simple frequency distribution of our am variable
+# We can do this by using .value_counts() function
 df.am.value_counts()
 
-# Running our test given the frequency distributions where "am" = 0
+# This shows that x=19.
+# By adding all frequencies, we can get the total number of observations in the dataset (n=32)
+# Now we are ready to run the test (i.e. calculating the p-value of our test):
 binom_test(x = 19, n = 32, p = 0.5)
 
 # [DIY] Calculate how many cars in the dataset have less than 6 cylinders
-df.cyl.value_counts()
 
-# [DIY] Test whether we have enough statistical evidence to claim that the share of cars with less than 6 cilinders is not 60%
-binom_test(x = 11, n = 32, p = 0.6)
+
+# [DIY] Test (calculate the p-value) whether we have enough statistical evidence to claim that the share of cars with less than 6 cilinders is not 60%
+
 
 ```
 
