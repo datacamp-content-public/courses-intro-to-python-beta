@@ -289,24 +289,27 @@ key: 301c3c486c
 xp: 100
 ```
 
-Data visualization is the process of converting raw data into easily understandable pictorial representation, that enables fast and effective decisions.
+Data visualization is the process of converting raw data into easily understandable pictorial representations, that support analytics and enable fast and effective decision-making.
+
 Data visualization is a strategy where we represent the quantitative information in a graphical form. The key points of data visualization are:
 - Data visualization is the first step of analysis work.
 - It gives intuitive understanding of data.
 - Helps you to see data in certain meaningful patterns.
-- Visual representations enhances the human cognitive process.
 
-Python has a number of visualization libraries. There are both low and high level tools that give you different levels of control over what you do and how you want to do it. We will use `seaborn` package to do the plotting. It uses `matplotlib` library in its core. That's why, almost every time you should import them together.
+Python has a number of visualization libraries. There are both low and high level tools that give you different levels of control over what you do.
+
+We will use `seaborn` package to do the plotting. It uses `matplotlib` library in its core. That's why, almost every time you should import them together.
+
 ```
 import seaborn as sns	  			  # seaborn alias
 import matplotlib.pyplot as plt		# matplotlib alias
 ```
 
 `@instructions`
-1. Create a distribution plot.
+1. Create a histogram plot.
 
 `@hint`
-Use `sns.distplot()` for making a distribution plot.
+Use `sns.distplot()` for plotting a frequency distribution.
 
 `@pre_exercise_code`
 ```{python}
@@ -321,23 +324,39 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# Creating an array of values
+# Create a NumPy array of values
 x = np.array([1,4,3,5,5,6,3,6,3,5,3,5,1,5,1,6,3,4,6])
 
-# Plot the distribution of x
+# Plot the (scaled) histogram (i.e. relative frequency distribution) of x
 sns.distplot(x)
+# Notice that at this point the plot has been generated, but you do not see it.
+# In order to see it, you have to ask Python to show.
 plt.show()
 
-# [DIY] Create another array of values named y
-
-# [DIY] Plot the distribution of y
-
-
-
-# One can plot several distributions on top of each other for comparison
-sns.distplot(x)
-sns.distplot(y)
+# Notice that seaborn distplot also plots a kernel density estimate (sort of an extrapolation of what the frequency distribution of your population might look like, based on the sample that you are working with)
+# To plot only a histogram (not scaled, i.e. absolute frequency distribution) you have to tell seaborn not to include kernel density estimate default option
+sns.distplot(x, kde=False)
 plt.show()
+
+# However, as you see, instead of generating a new plot, seaborn just added the new plot to the old one.
+# Sometimes this is very useful. Other times it is not.
+# In order for this not to happen, you have to clear the previous plot by using
+plt.clf()
+# before plotting again (Don't worry if you still see the plot, it is gone from Python's working memory).
+sns.distplot(x, kde=False)
+plt.show()
+
+# [DIY] Create another array named "y" containing following values: 1,4,1,1,5,4,6,5,4,4,2,6,3,3,2,3,1,5,2.
+
+# [DIY] Clear the previous plot
+
+# [DIY] Plot (create and display) the histogram of y
+
+
+
+# [DIY] Add the histogram of variable x to the previous (don't forget to ask Python to show it to you!)
+
+
 ```
 
 `@solution`
@@ -348,22 +367,38 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# Creating an array of values
+# Create a NumPy array of values
 x = np.array([1,4,3,5,5,6,3,6,3,5,3,5,1,5,1,6,3,4,6])
 
-# Plot the distribution of x
+# Plot the (scaled) histogram (i.e. relative frequency distribution) of x
 sns.distplot(x)
+# Notice that at this point the plot has been generated, but you do not see it.
+# In order to see it, you have to ask Python to show.
 plt.show()
 
-# [DIY] Create another array of values named y - [1,4,1,1,5,4,6,5,4,4,2,6,3,3,2,3,1,5,2]
+# Notice that seaborn distplot also plots a kernel density estimate (sort of an extrapolation of what the frequency distribution of your population might look like, based on the sample that you are working with)
+# To plot only a histogram (not scaled, i.e. absolute frequency distribution) you have to tell seaborn not to include kernel density estimate default option
+sns.distplot(x, kde=False)
+plt.show()
+
+# However, as you see, instead of generating a new plot, seaborn just added the new plot to the old one.
+# Sometimes this is very useful. Other times it is not.
+# In order for this not to happen, you have to clear the previous plot by using
+plt.clf()
+# before plotting again (Don't worry if you still see the plot, it is gone from Python's working memory).
+sns.distplot(x, kde=False)
+plt.show()
+
+# [DIY] Create another array named "y" containing following values: 1,4,1,1,5,4,6,5,4,4,2,6,3,3,2,3,1,5,2.
 y = np.array([1,4,1,1,5,4,6,5,4,4,2,6,3,3,2,3,1,5,2])
-# [DIY] Plot the distribution of y
-sns.distplot(y)
+# [DIY] Clear the previous plot
+plt.clf()
+# [DIY] Plot (create and display) the histogram of y
+sns.distplot(y, kde=False)
 plt.show()
 
-# One can plot several distributions on top of each other for comparison
-sns.distplot(x)
-sns.distplot(y)
+# [DIY] Add the histogram of variable x to the previous
+sns.distplot(x, kde=False)
 plt.show()
 ```
 
