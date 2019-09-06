@@ -289,13 +289,13 @@ xp: 100
 
 Linear regression is a great tool for first steps in exploring the data. However, it might not be the best tool to model certain variables.
 
-For example, if we are modeling a variable that represents a market share of the company on the market, using linear regression might be problematic. If the slope of the line is not zero, linear regression could easily predict that certain firms would have 140% of the market share, or -40% of the market share. This is, clearly, not reasonable.
+For example, if we are modeling a variable that represents a market share of the company, using linear regression might be problematic. If the slope of the line is not zero, linear regression could easily predict that certain firms would have 140% of the market share, or -40%. This is, clearly, not reasonable.
 
 Therefore, for modeling share variables we might have to use different approach.
 
-The most straight forward of the methods available for these kinds of models is the generalized linear models, which makes sure that values of the predicted variable are confined to the interval between zero and one. We will use `statsmodels.discrete.dicsrete_model.Logit` for that.
+The most straight forward of the methods available for these kinds of models is the generalized linear models, which makes sure that values of the predicted variable are confined to the interval between zero and one.
 
-Logistic regression is one of the most widespread applications of the generalized linear models.
+Logistic regression is one of the most widespread applications of the generalized linear models. We will use `statsmodels.discrete.dicsrete_model.Logit` for that.
 
 `@instructions`
 - Compare the outputs of the two models on the right (both modeling `mpgShare` by use of `cyl` and `wt`): 
@@ -315,27 +315,22 @@ the standard linear regression and the logistic regression.
 # Loading the libraries
 import pandas as pd
 import statsmodels.formula.api as smf
-from statsmodels.discrete.discrete_model import Logit
+from statsmodels.discrete.discrete_model import Logit as lgt
 
 # Loading the data
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-# Create a new variable mpgShare (which will be a part of our dataset "a") and will
-# take a value of "mpg" divided by the highest value of "mpg" found in the dataset
+# Create a new variable mpgShare (which will be a part of our dataset) and will take a value of "mpg" divided by the highest value of "mpg" found in the dataset
 df["mpgShare"] = df["mpg"] / df["mpg"].max()
 
-# [DIY] run a linear regression, modeling the value of mpgShare
-# with variables "cyl" and "wt" 
-model1= 
+# [DIY] Create a a linear regression (named "model1"), modeling the value of mpgShare with variables "cyl" and "wt" 
 
-# Visualize the output of the above regression
-print(model1.summary())
+# [DIY] Visualize the output of model1
 
-# Run a logistic regression, modeling the value of mpgShare
-# with variables "cyl" and "wt" 
-model2 = Logit.from_formula("mpgShare ~ cyl + wt",data = df).fit()
+# To create a logistic regression (named "model2"), modeling the value of mpgShare with variables "cyl" and "wt", we need to specify "from_formula" (meaning formula that we are giving as an argument) option in Lositic function
+model2 = lgt.from_formula("mpgShare ~ cyl + wt",data = df).fit()
 
-#[DIY] visualize the output of the above regression
+#[DIY] Visualize the output of the above regression
 
 ```
 
@@ -344,28 +339,25 @@ model2 = Logit.from_formula("mpgShare ~ cyl + wt",data = df).fit()
 # Loading the libraries
 import pandas as pd
 import statsmodels.formula.api as smf
-from statsmodels.discrete.discrete_model import Logit
+from statsmodels.discrete.discrete_model import Logit as lgt
 
 # Loading the data
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-# Create a new variable mpgShare (which will be a part of our dataset "a") and will
-# take a value of "mpg" divided by the highest value of "mpg" found in the dataset
+# Create a new variable mpgShare (which will be a part of our dataset) and will take a value of "mpg" divided by the highest value of "mpg" found in the dataset
 df["mpgShare"] = df["mpg"] / df["mpg"].max()
 
-# [DIY] run a linear regression, modeling the value of mpgShare
-# with variables "cyl" and "wt" 
-model1= smf.ols("mpgShare ~ cyl + wt", data = df).fit()
+# [DIY] Create a a linear regression (named "model1"), modeling the value of mpgShare with variables "cyl" and "wt" 
+model1 = smf.ols("mpgShare ~ cyl + wt", data = df).fit()
 
-# Visualize the output of the above regression
-print(model1.summary())
+# [DIY] Visualize the output of model1
+model1.summary()
 
-# Run a logistic regression, modeling the value of mpgShare
-# with variables "cyl" and "wt" 
-model2 = Logit.from_formula("mpgShare ~ cyl + wt",data = df).fit()
+# To create a logistic regression (named "model2"), modeling the value of mpgShare with variables "cyl" and "wt", we need to specify "from_formula" (meaning formula that we are giving as an argument) option in Lositic function
+model2 = lgt.from_formula("mpgShare ~ cyl + wt",data = df).fit()
 
 #[DIY] Visualize the output of the above regression
-print(model2.summary())
+model2.summary()
 ```
 
 `@sct`
