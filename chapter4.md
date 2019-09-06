@@ -101,7 +101,7 @@ The summary of the model can be displayed by calling `model_name.summary()`. You
 
 Notice that some numbers are given in a following format: 6.11e-10. These are very small numbers: this is 6.11 divided by 1 followed by 10 zeros (so, basically 0.000000000611).
 
-We can generate the scatter plot of our data in Python using `regplot()` function from `seaborn`.
+We can generate the scatter plot of our data and regression line in Python using `regplot()` function from `seaborn`.
 
 `@instructions`
 - Notice that you only need to specify your variable names in function `ols()` as you are specifying the dataset to use.
@@ -127,19 +127,18 @@ import matplotlib.pyplot as plt
 # Loading the data
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-# Create a model and save it to the object and look at the summary
+# Create a model and save it to the object
 model1 = smf.ols("mpg ~ cyl", data = df).fit()
+# Visualize the summary/output of the regression
 print(model1.summary())
 
 # Plot the regression line
 sns.regplot(x = "cyl", y = "mpg", data = df)
 plt.show()
 
-# [DIY] make a second regression model of "wt" on "drat". Remember to use fit() to fit the model
-model2 = 
+# [DIY] Make a new regression explaining variable "drat" by variable "wt"
 
 # [DIY] Print the summary
-
 
 ```
 
@@ -154,20 +153,20 @@ import matplotlib.pyplot as plt
 # Loading the data
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-# Create a model and save it to the object and look at the summary
+# Create a model and save it to the object
 model1 = smf.ols("mpg ~ cyl", data = df).fit()
+# Visualize the summary/output of the regression
 print(model1.summary())
 
 # Plot the regression line
 sns.regplot(x = "cyl", y = "mpg", data = df)
 plt.show()
 
-# [DIY] make a second regression model of "wt" on "drat"
+# [DIY] Make a new regression explaining variable "drat" by variable "wt"
 model2 = smf.ols("drat ~ wt", data = df).fit()
 
 # [DIY] Print the summary
 print(model2.summary())
-
 ```
 
 `@sct`
