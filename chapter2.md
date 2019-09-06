@@ -357,6 +357,24 @@ plt.show()
 # [DIY] Add the histogram of variable x to the previous (don't forget to ask Python to show it to you!)
 
 
+# After seeing the distribution of x and y we also might be interested in the relationship
+# between these two. The simplest way to see it is to use scatterplot
+# first, clear the previous plot
+plt.clf()
+sns.scatterplot(x, y)
+plt.show()
+
+# [DIY] Create two new arrays "a" and "b" containing following values:
+# 1, 2, 3, 4, 5 and 2, 5, 10, 17, 26
+
+
+# [DIY] Clear the previous plot
+
+# [DIY] Create a scatterplot of a and b and display it
+
+
+
+
 ```
 
 `@solution`
@@ -400,6 +418,28 @@ plt.show()
 # [DIY] Add the histogram of variable x to the previous
 sns.distplot(x, kde=False)
 plt.show()
+
+# After seeing the distribution of x and y we also might be interested in the relationship
+# between these two. The simplest way to see it is to use scatterplot
+# first, clear the previous plot
+plt.clf()
+sns.scatterplot(x, y)
+plt.show()
+
+# [DIY] Create two new arrays "a" and "b" containing following values:
+# 1, 2, 3, 4, 5 and 2, 5, 10, 17, 26
+a = np.array([1, 2, 3, 4, 5])
+b = np.array([2, 5, 10, 17, 26])
+
+# [DIY] Clear the previous plot
+plt.clf()
+
+# [DIY] Create a scatterplot of a and b and display it
+sns.scatterplot(a, b)
+plt.show()
+
+
+
 ```
 
 `@sct`
