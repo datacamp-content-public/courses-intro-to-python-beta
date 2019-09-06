@@ -89,18 +89,18 @@ key: eb2819ee90
 xp: 100
 ```
 
-The simplest sort of the regression is a linear Ordinary Least Squares (OLS) regression. This is the method that tries to fit the straight line into your two-dimensional scatter plot data such that this line (predicted values) has the lowest possible squared errors compared to actual values (which we observe in our data — hence, supervised learning).
+The simplest sort of the regression is a linear Ordinary Least Squares (OLS) regression. This is the method that tries to fit the straight line into your two-dimensional scatter plot data such that this line (predicted values) has the lowest possible error compared to actual values.
 
 In its simplest form we will try to predict the values of one variable (in this case `mpg`) by looking at the values of another variable (in this case `cyl`).
 
-Linear regression can be run by using function `ols` from `statsmodels.formula.api`. Of course, in Python it is better to create an object which would hold your “regression object” that can be visualised at later point. After creating the model, we should use `fit()` method on the model. We can do it in one go as `smf.ols("the formula", data).fit()`.
+Linear regression can be run by using function `ols` from `statsmodels.formula.api`, which we will import as `smf`. Of course, in Python it is better to create an object which would hold your “regression object” that can be visualised at a later point. After creating the model, we should use `.fit()` method on the model. We can do it in one go as `smf.ols("the formula", data).fit()`.
 
 The left-hand-side variable is our dependent variable. While the right-hand-side variable is referred to as an independent variable.
 
-The summary of the model can be called `model_name.summary()` and  specifies coefficients for the fitted line (intercept, and the slope of the line) as well as many other feature of the model. The most important of these values are:
+The summary of the model can be displayed by calling `model_name.summary()`. You should be able to understand most of the output.
 
-R-squared, that takes values between 0 and 1 and measures the fit of the model. Or, in other word, how much variation in our dependent variable can be explained by the variation in independent variable. Or, how accurately we can predict the value of the left-hand-side variable by looking at the value of the right-hand-side variable.
-p-value (or in this output `Pr(>|t|)`) of each of the coefficient, which represents the p-value of the test with the null hypothesis of the actual coefficient being zero (with an alternative hypothesis of it not being zero). Recall that p-value measures the size of the error that we will be making if we rejected our null hypothesis in favor of the alternative. Therefore, low p-value (less than 0.05) means that the likelihood of making an error if we claim that the slope of the line is different from zero (in other words, that our independent variable can predict our independent variable) is very small. Notice that the number 6.11e-10 is extremely small: it basically is 6.11 divided by 1 followed by 10 zeros (so, basically 0.000000000611).
+Notice that some numbers are given in a following format: 6.11e-10. These are very small numbers: this is 6.11 divided by 1 followed by 10 zeros (so, basically 0.000000000611).
+
 We can generate the scatter plot of our data in Python using `regplot()` function from `seaborn`.
 
 `@instructions`
