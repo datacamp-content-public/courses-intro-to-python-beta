@@ -11,15 +11,15 @@ key: 14d7702b09
 xp: 100
 ```
 
-Regression analysis is a workhorse of the inferential statistics. It allows us to take first steps into modelling certain variables by using information available to us.
+Regression analysis is a workhorse of the inferential statistics. It allows us to take first steps into modeling certain variables by using information available to us.
 
-This is also a method of supervised machine learning, which means that it is necessary to have some information about the variable that we are actually modelling.
+This is also a method of supervised machine learning, which means that it is necessary to have some information about the variable that we are actually modeling.
 
 In a nutshell, regression analysis will help us predict a value of one variable by having information about other variables.
 
 For example, we could use somebody’s grade in statistics course to predict the grade in a different course.
 
-In this section we will be using `mtcars` dataset that we have been also using before.
+In this section we will be using `mtcars` dataset that we have already used before.
 
 Refresh your memory about the dataset by completing tasks on your right.
 
@@ -45,12 +45,10 @@ df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b
 
 # [DIY] Look at the first rows of the data. Use `print` function to print the result to console
 
-
 # [DIY] Look at the last rows of the data. Use `print` function to print the result to console
+# We know that we have not actually covered displaying last raws of the dataset, but here is where Google and/or your creativity comes in! Take charge!
 
-
-# [DIY] Summarize the numerical variables
-
+# [DIY] Summarize numerical variables
 
 ```
 
@@ -65,10 +63,10 @@ df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b
 
 # [DIY] Look at the first rows of the data. Use `print` function to print the result to console
 print(df.head())
-
 # [DIY] Look at the last rows of the data. Use `print` function to print the result to console
+# We know that we have not actually covered displaying last raws of the dataset, but here is where Google and/or your creativity comes in! Take charge!
 print(df.tail())
-# [DIY] Summarize the numerical variables
+# [DIY] Summarize numerical variables
 df.describe()
 
 ```
