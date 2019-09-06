@@ -189,9 +189,9 @@ key: 1544533360
 xp: 100
 ```
 
-In previous chapter we have tried to predict the value of one variable by using the information about the other variable.
+In previous chapter we have tried to predict the value of one variable by using the information about another variable.
 
-In principle there is no reason why we might want to use the information in only one variable to model our variable of interest. Maybe the grade of a student in a particular class can be predicted better if we use some other information together with his/her grade in the statistics class?
+In principle there is no reason why we might want to use the information from only one variable to model our variable of interest. Maybe the grade of a student in a particular class can be predicted better if we use some other information together with his/her grade in the statistics class?
 
 Multivariate linear regression allows us to do just that. With a simple line of code we can specify a multiple independent variables that could help us predict our dependent variable. (Notice that using linear regression we cannot model multiple dependent variables at the same time. So, only one left-hand-side variable at a time).
 
@@ -225,15 +225,13 @@ model1 = smf.ols("mpg ~ cyl + wt", data = df).fit()
 print(model1.summary())
 
 #[DIY] Add another dependent variable "hp" to the regression performed above and output the summary
-model2 = 
 
-# Produce the scaterplot of the relation between "mpg" and "cyl". As you see, we can only have two variables
+
+# Produce the scaterplot of the relation between "mpg" and "cyl". You cannot have more than two variables as you are producing a two-dimentional plot.
 sns.regplot(x = "mpg", y = "cyl", data  = df)
 plt.show()
 
-# [DIY] in one line of code, visualize the output of a linear regression
-# with "mpg" as a dependent variable and "cyl", "qsec", "gear" and "carb" as independent variables. Attention on spacing
-
+# [DIY] Somewhat advanced: In one line of code, visualize the output of a linear regression with "mpg" as a dependent variable and "cyl", "qsec", "gear" and "carb" as independent variables
 
 ```
 
@@ -256,12 +254,11 @@ print(model1.summary())
 model2 = smf.ols("mpg ~ cyl + wt + hp", data = df).fit()
 print(model2.summary())
 
-# Produce the scaterplot of the relation between "mpg" and "cyl". As you see, we can only have two variables
+# Produce the scaterplot of the relation between "mpg" and "cyl". You cannot have more than two variables as you are producing a two-dimentional plot.
 sns.regplot(x = "mpg", y = "cyl", data  = df)
 plt.show()
 
-# [DIY] in one line of code, visualize the output of a linear regression
-# with "mpg" as a dependent variable and "cyl", "qsec", "gear" and "carb" as independent variables
+# [DIY] Somewhat advanced: In one line of code, visualize the output of a linear regression with "mpg" as a dependent variable and "cyl", "qsec", "gear" and "carb" as independent variables
 print(smf.ols("mpg ~ cyl + qsec + gear + carb", data=df).fit().summary())
 
 ```
