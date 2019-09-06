@@ -298,11 +298,11 @@ binom_test(x=19, n=32, p=0.5, alternative="two-sided")
 binom_test(x=19, n=32, p=0.5, alternative="less")
 
 #[DIY] perform the t-test checking whether the share of am=0 cars is greater than 0.5
-binom_test(x=19, n=32, p=0.5, alternative="greater")
+
 
 #[DIY] perform the t-test checking whether the share of cars with less than 6 cylinders is greater than 20%
-df.cyl.value_counts()
-binom_test(x=11, n=32, p=0.2, alternative="greater")
+
+
 
 # Try to formulate your conclusion after calucating the p-value of the test every time!
 ```
@@ -326,11 +326,11 @@ binom_test(x=19, n=32, p=0.5, alternative="two-sided")
 binom_test(x=19, n=32, p=0.5, alternative="less")
 
 #[DIY] perform the t-test checking whether the share of am=0 cars is greater than 0.5
-
+binom_test(x=19, n=32, p=0.5, alternative="greater")
 
 #[DIY] perform the t-test checking whether the share of cars with less than 6 cylinders is greater than 20%
-
-
+df.cyl.value_counts()
+binom_test(x=11, n=32, p=0.2, alternative="greater")
 
 # Try to formulate your conclusion after calucating the p-value of the test every time!
 ```
