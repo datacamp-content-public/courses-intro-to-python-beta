@@ -384,7 +384,7 @@ key: a1bf7d6e76
 xp: 100
 ```
 
-Linear regression might not be the best tool to model certain (other than shares) types of data. For example, is we are modeling count data (e.g. number of times a consumer has visited a particular website), OLS might predict that this number is -3. This is not possible, clearly.
+Linear (and generalized linear) regression might not be the best tool to model certain other types of data (even besides shares). For example, if we are modeling count data (e.g. number of times a consumer has visited a particular website), OLS might predict that this number is -3. This is not possible, clearly.
 
 Other types of generalized linear models take into account of the count nature of the data.
 
@@ -408,24 +408,21 @@ The most widespread of such models are Poisson models. The syntax of this model 
 # Loading the libraries
 import pandas as pd
 import statsmodels.formula.api as smf
-from statsmodels.discrete.discrete_model import Poisson
+from statsmodels.discrete.discrete_model import Poisson as psn
 
 # Loading the data
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-#[DIY] run a linear regression, modeling "gear" with "mpg"
-# (i.e. regress "mpg" on "gear")
-model1 =
+#[DIY] Run a linear regression (named model1), modeling "gear" with "mpg" (i.e. regress "mpg" on "gear")
 
 #[DIY] visualize the output of the model1 above
 
-
-#Run a Poisson regression, modeling "gear" with "mpg"
-# (i.e. regress "mpg" on "gear" by using a Poisson model)
-model2 = Poisson.from_formula("gear ~ mpg", data=df).fit()
+#Now run a Poisson regression (named model2), modeling "gear" with "mpg" (i.e. regress "mpg" on "gear" by using a Poisson model)
+model2 = psn.from_formula("gear ~ mpg", data=df).fit()
 
 #[DIY] visualize the output of the model2 above
 
+# Compare and contrast the results. Namely see if "mpg" can really predict "gear".
 ```
 
 `@solution`
@@ -433,24 +430,23 @@ model2 = Poisson.from_formula("gear ~ mpg", data=df).fit()
 # Loading the libraries
 import pandas as pd
 import statsmodels.formula.api as smf
-from statsmodels.discrete.discrete_model import Poisson
+from statsmodels.discrete.discrete_model import Poisson as psn
 
 # Loading the data
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-#[DIY] run a linear regression, modeling "gear" with "mpg"
-# (i.e. regress "mpg" on "gear")
+#[DIY] Run a linear regression (named model1), modeling "gear" with "mpg" (i.e. regress "mpg" on "gear")
 model1 = smf.ols("gear ~ mpg", data = df).fit()
-
 #[DIY] visualize the output of the model1 above
-print(model1.summary())
+model1.summary()
 
-#Run a Poisson regression, modeling "gear" with "mpg"
-# (i.e. regress "mpg" on "gear" by using a Poisson model)
-model2 = Poisson.from_formula("gear ~ mpg", data=df).fit()
+#Now run a Poisson regression (named model2), modeling "gear" with "mpg" (i.e. regress "mpg" on "gear" by using a Poisson model)
+model2 = psn.from_formula("gear ~ mpg", data=df).fit()
 
 #[DIY] visualize the output of the model2 above
-print(model2.summary())
+model2.summary()
+
+# Compare and contrast the results. Namely see if "mpg" can really predict "gear".
 ```
 
 `@sct`
