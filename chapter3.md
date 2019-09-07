@@ -565,10 +565,17 @@ key: 583649fe1d
 xp: 100
 ```
 
+The paired t-test, also referred to as the paired-samples t-test or dependent t-test, is used to determine whether the mean of a dependent variable (e.g., weight, anxiety level, salary, reaction time, etc.) is the same in two related groups (e.g., two groups of participants that are measured at two different "time points" or who undergo two different "conditions"). For example:
 
+- Is the drug against blood pressure actually working?
+- Does getting an additional training affect the salaries of managers?
+
+In order to run paired t-test we will rely on `ttest_rel` from `scipy.stats`.
+We will compare weight of the 20 mice before and after a certain treatment X to find out if the treatment has any significant effect on their weights. As exercise we will perform the similar test on wages of managers before and after getting the additional training Y.
 
 `@instructions`
-
+- Perform the paired t-test
+- What does the result you see imply?
 
 `@hint`
 
@@ -580,11 +587,57 @@ xp: 100
 
 `@sample_code`
 ```{python}
+# importing the libraries
+import numpy as np
+from scipy.stats import ttest_rel
+
+# Weights before treatment
+before = np.array([200.1, 190.9, 192.7, 213, 241.4, 196.9, 172.2, 185.5, 205.2, 193.7])
+
+# [DIY] Create and array named after with the following values
+# 392.9, 393.2, 345.1, 393, 434, 427.9, 422, 383.9, 392.3, 352.2
+
+
+# Perform the paired t-test between weights before and after
+ttest_rel(before, after)
+
+# Create an array of wages before the training
+wages_before = np.array([110.2, 114.3, 100, 96.8, 123.6, 114.2, 108.7])
+
+# [DIY] Create an array named wages_after with the folliwing values
+# 114, 115.6, 110, 99, 123.6, 115, 110.2
+
+
+# [DIY] Perform the paired t-test between wages before and after
+
 
 ```
 
 `@solution`
 ```{python}
+# importing the libraries
+import numpy as np
+from scipy.stats import ttest_rel
+
+# Weights before treatment
+before = np.array([200.1, 190.9, 192.7, 213, 241.4, 196.9, 172.2, 185.5, 205.2, 193.7])
+
+# [DIY] Create and array named after with the following values
+# 392.9, 393.2, 345.1, 393, 434, 427.9, 422, 383.9, 392.3, 352.2
+after = np.array([392.9, 393.2, 345.1, 393, 434, 427.9, 422, 383.9, 392.3, 352.2])
+
+# Perform the paired t-test between weights before and after
+ttest_rel(before, after)
+
+# Create an array of wages before the training
+wages_before = np.array([110.2, 114.3, 100, 96.8, 123.6, 114.2, 108.7])
+
+# [DIY] Create an array named wages_after with the folliwing values
+# 114, 115.6, 110, 99, 123.6, 115, 110.2
+wages_after = np.array([114, 115.6, 110, 99, 123.6, 115, 110.2])
+
+# [DIY] Perform the paired t-test between wages before and after
+ttest_rel(wages_before, wages_after)
 
 ```
 
