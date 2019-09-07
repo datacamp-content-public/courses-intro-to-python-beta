@@ -389,9 +389,12 @@ And all this, of course, based on the sample of the data.
 
 For this we will use a different data, data on characteristics of iris flowers that we can directly load from within the `seaborn` package.
 
-The function we will need is `ttest_1samp` from `scipy.stats`. This is a two-sided test for the null hypothesis that the expected value (mean) of a sample of independent observations `a` is equal to the given population mean, `popmean`
+The function we will need is `ttest_mean` from `statsmodels.stats.weightstats.DescrStatsW`. This is a two-sided test for the null hypothesis that the expected value (mean) of a sample of independent observations `a` is equal to the given population mean, `popmean`. It will output t-statistics, p-value and degrees of freedom as a result.
 
-Except that now, instead of calculating the number of observations qualifying of the test by hand (which we did in case of z-test), we can pass the variable we want to test to the function `ttest_1samp`.
+Except that now, instead of calculating the number of observations qualifying of the test by hand (which we did in case of z-test), we can pass the variable we want to test to the function `DescrStatsW` and then run the function `ttest_mean`.
+
+One can also specify the different alternative hypothesis in this check such as, two-sided (default),
+larger and smaller
 
 `@instructions`
 - Perform the t-test of sepal width against population mean 3
@@ -409,32 +412,52 @@ Except that now, instead of calculating the number of observations qualifying of
 ```{python}
 # Importing packages
 import seaborn as sns
-from scipy.stats import ttest_1samp as tt1
+from statsmodels.stats.weightstats import DescrStatsW as smstat
 
 # Loading the data
 df = sns.load_dataset("iris")
 
 # Perform the t-test on sepal length against 5.6
-tt1(df.sepal_length, popmean = 5.6)
+# first we give the data to ststat and then we run the function
+# ttest_mean with the mean we want to check against
+smstat(df.sepal_length).ttest_mean(5.6)
 
 # [DIY] Perform the t-test on sepal width against 3
-ttest_1samp(df.sepal_width, popmean = 3)
+smstat(df.sepal_width).ttest_mean(3)
+
+# Perform the t-test on sepal length against 5.6 
+# with alternative hypothesis being greater
+smstat(df.sepal_length).ttest_mean(5.6, alternative = "larger")
+
+# [DIY] Perform the t-test on sepal width against 3
+# with alternative hypothesis being smaller
+smstat(df.sepal_width).ttest_mean(3, alternative = "smaller")
 ```
 
 `@solution`
 ```{python}
 # Importing packages
 import seaborn as sns
-from scipy.stats import ttest_1samp as tt1
+from statsmodels.stats.weightstats import DescrStatsW as smstat
 
 # Loading the data
 df = sns.load_dataset("iris")
 
 # Perform the t-test on sepal length against 5.6
-tt1(df.sepal_length, popmean = 5.6)
+# first we give the data to ststat and then we run the function
+# ttest_mean with the mean we want to check against
+smstat(df.sepal_length).ttest_mean(5.6)
 
 # [DIY] Perform the t-test on sepal width against 3
-ttest_1samp(df.sepal_width, popmean = 3)
+smstat(df.sepal_width).ttest_mean(3)
+
+# Perform the t-test on sepal length against 5.6 
+# with alternative hypothesis being greater
+smstat(df.sepal_length).ttest_mean(5.6, alternative = "larger")
+
+# [DIY] Perform the t-test on sepal width against 3
+# with alternative hypothesis being smaller
+smstat(df.sepal_width).ttest_mean(3, alternative = "smaller")
 ```
 
 `@sct`
