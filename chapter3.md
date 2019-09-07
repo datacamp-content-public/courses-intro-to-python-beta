@@ -423,7 +423,7 @@ df = sns.load_dataset("iris")
 smstat(df.sepal_length).ttest_mean(5.6)
 
 # [DIY] Perform the t-test on sepal width against 3
-smstat(df.sepal_width).ttest_mean(3)
+
 
 # Perform the t-test on sepal length against 5.6 
 # with alternative hypothesis being greater
@@ -431,7 +431,7 @@ smstat(df.sepal_length).ttest_mean(5.6, alternative = "larger")
 
 # [DIY] Perform the t-test on sepal width against 3
 # with alternative hypothesis being smaller
-smstat(df.sepal_width).ttest_mean(3, alternative = "smaller")
+
 ```
 
 `@solution`
@@ -553,4 +553,42 @@ Ex().check_function("scipy.stats.ttest_ind", 1).multi(
   check_args("b").has_equal_value()
 )
 success_msg("Good Job!")
+```
+
+---
+
+## Paired t-test
+
+```yaml
+type: NormalExercise
+key: 583649fe1d
+xp: 100
+```
+
+
+
+`@instructions`
+
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+
+```
+
+`@solution`
+```{python}
+
+```
+
+`@sct`
+```{python}
+
 ```
