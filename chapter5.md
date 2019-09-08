@@ -414,3 +414,50 @@ print(confusion_matrix(y_test, y_pred))
 ```{python}
 
 ```
+
+---
+
+## Misc. Cross- validation
+
+```yaml
+type: NormalExercise
+key: 2c476fc269
+xp: 100
+```
+
+Cross-Validation is the process of assessing how the results of a statistical analysis will generalize to an independent dataset.
+In a prediction problem, a model is usually given a dataset of known data on which training is run (training dataset), and a dataset of unknown data (or first seen data) against which the model is tested (called the validation dataset or testing set). The goal of cross-validation is to define a dataset to “test” the model in the training phase (i.e., the validation set), in order to limit problems like overfitting, give an insight on how the model will generalize to an independent dataset.There are many cross-validation techniques and each technique has its own use-case. Here are some of them:
+
+- Holdout. This is the simplest technique in which we simply remove some random sample from our training set and use it evaluate the training phase. It does not have any additional computational costs because of its simplicity.
+- K-fold. When we do not have enough data, even removing a small sample from training set may result in losing important patterns and thus high error in prediction phase. Data is divided into K number of folds and training is done on K-1 and testing on the remaining fold. This process is redone until each fold is used in testing phase.
+- Stratified K-fold. When there is a strong imbalance in data, splitting it randomly may not be the best option. In stratified K-fold data is split evenly as possible based on class imbalance. So, as a result we get almost the same proportion of classes in every fold.
+- Leave one out. Similar to K-fold, but it is done not on fold level, but on sample level. Having N samples, every time only one sample will be used in testing and N-1 on training. Suitable when having a small dataset. 
+- Leave p out. Similar to leave one out, but instead of leaving one sample, we leave p samples out. Training is done on N-p samples, while testing is done on p samples.
+
+This exercise does not have any tasks to complete by students and is for information purposes.
+
+`@instructions`
+
+
+`@hint`
+
+
+`@pre_exercise_code`
+```{python}
+
+```
+
+`@sample_code`
+```{python}
+# Nothing here
+```
+
+`@solution`
+```{python}
+
+```
+
+`@sct`
+```{python}
+
+```
