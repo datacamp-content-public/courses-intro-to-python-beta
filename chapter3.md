@@ -389,7 +389,7 @@ And all this, of course, based on the sample of the data.
 
 For this we will use a different data, data on characteristics of iris flowers that we can directly load from within the `seaborn` package.
 
-The function we will need is `ttest_mean` from `statsmodels.stats.weightstats.DescrStatsW`. This is a two-sided test for the null hypothesis that the expected value (mean) of a sample of independent observations `a` is equal to the given population mean, `popmean`. It will output t-statistics, p-value and degrees of freedom as a result.
+The function we will need is `ttest_mean` from `statsmodels.stats.weightstats.DescrStatsW`. This is a two-sided test for the null hypothesis that the expected value (mean) of a sample of independent observations `a` is equal to the given population mean, `popmean`. It will output t-statistics, p-value and degrees of freedom (in this sequence) as a result.
 
 Except that now, instead of calculating the number of observations qualifying of the test by hand (which we did in case of z-test), we can pass the variable we want to test to the function `DescrStatsW` and then run the function `ttest_mean`.
 
