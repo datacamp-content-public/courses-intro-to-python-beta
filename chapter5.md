@@ -11,7 +11,7 @@ key: dbc917f41c
 xp: 100
 ```
 
-Out of sample prediction (predictive modeling hereafter) is a backbone of data science in which we use statistics to model a behavior using the information already provided to be able to predict the future behaviors. Different from descriptive modeling, in predictive modeling we do not model based on full subset of data because our model may suffer from overfitting and will not be able to make correct predictions.
+Out of sample prediction (predictive modeling hereafter) is a backbone of data science in which we use statistics to model a behavior using the information already provided to be able to predict the unobservable (possible future) behavior. Different from descriptive modeling, in predictive modeling we do not model our dependent variable based on full subset of data. We save a part of our data to evaluate how well our model can predict unobserved behavior.
 The main workflow of predictive modeling looks as follows:
 - Loading the data
 - Running exploratory analysis
