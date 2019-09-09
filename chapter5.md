@@ -113,7 +113,7 @@ Split the numpy array into 80/20 training set
 # Importing the libraries
 import pandas as pd
 import numpy as np
-from sklearn.model_seletcion import train_test_split as tts
+from sklearn.model_selection import train_test_split as tts
 
 # Import data into a dataframe
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
@@ -137,7 +137,7 @@ test_a
 # Importing the libraries
 import pandas as pd
 import numpy as np
-from sklearn.model_seletcion import train_test_split as tts
+from sklearn.model_selection import train_test_split as tts
 
 # Import data into a dataframe
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
