@@ -92,10 +92,9 @@ xp: 100
 
 Splitting the dataset is the first step towards predictive modeling. The proportion of training and test dataset sizes can be different depending on task and a domain, but most common ones are 75/25 and 80/20.
 
-In order to split our dataset, we will use the powerful `sklearn` package. It has a special function `train_test_split`. It works with numpy arrays, dataframes, and python lists very well. Depending on input, it either outputs train and test chunks, or if user wants more control, it can also output training and test sets for `X` and `y` variables. Typical usage is below. Notice how we use `train_size` argument to tell the function that we want 75/25 split.
+In order to split our dataset, we will use the powerful `sklearn` package. It has a special function `train_test_split`. It works with numpy arrays, dataframes, and python lists very well. Depending on input, it either outputs train and test chunks, or if user wants more control, it can also output training and test sets for multiple variables at the same time Typical usage is below. Notice how we use `train_size` argument to tell the function that we want 75/25 split.
 ```
 train, test = train_test_split(dataframe, train_size = 0.75)
-X_train, X_test, y_train, y_test = train_test_split(X, y, train_size = 0.75)
 ```
 
 `@instructions`
@@ -114,22 +113,23 @@ Split the numpy array into 80/20 training set
 # Importing the libraries
 import pandas as pd
 import numpy as np
-from sklearn.model_seletcion import train_test_split
+from sklearn.model_seletcion import train_test_split as tts
 
-# Create the dataframe
+# Import data into a dataframe
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-# Splitting the dataframe into train and test chunks 75/25
-train_chunk, test_chunk = train_test_split(df, train_size = 0.75)
+# Randomly splitting the dataframe into train and test chunks 75/25
+train_chunk, test_chunk = tts(df, train_size = 0.75)
+# Note that we do not need to specify 25% once we specify 75!
 
-# [DIY] Create a numpy array with these values
-# 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+# [DIY] Create a numpy array (named "A") with these values 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+A = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
+# [DIY] Split this array into training and test chunks 80/20 (and name them "train_a" and "test_a")
+train_a, test_a = train_test_split(A, train_size = 0.8)
 
-# [DIY] Split this array into training and test chunks 80/20
-# and name them train_a, test_a
-
-
+# [DIY] Visualize the test dataset
+test_a
 ```
 
 `@solution`
@@ -137,21 +137,20 @@ train_chunk, test_chunk = train_test_split(df, train_size = 0.75)
 # Importing the libraries
 import pandas as pd
 import numpy as np
-from sklearn.model_seletcion import train_test_split
+from sklearn.model_seletcion import train_test_split as tts
 
-# Create the dataframe
+# Import data into a dataframe
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-# Splitting the dataframe into train and test chunks 75/25
-train_chunk, test_chunk = train_test_split(df, train_size = 0.75)
+# Randomly splitting the dataframe into train and test chunks 75/25
+train_chunk, test_chunk = tts(df, train_size = 0.75)
+# Note that we do not need to specify 25% once we specify 75!
 
-# [DIY] Create a numpy array named A with these values
-# 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-A = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+# [DIY] Create a numpy array (named "A") with these values 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
-# [DIY] Split this array into training and test chunks 80/20
-# and name them train_a, test_a
-train_a, test_a = train_test_split(A, train_size = 0.8)
+# [DIY] Split this array into training and test chunks 80/20 (and name them "train_a" and "test_a")
+
+# [DIY] Visualize the test dataset
 
 ```
 
