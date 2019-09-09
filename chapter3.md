@@ -558,12 +558,13 @@ key: 583649fe1d
 xp: 100
 ```
 
-The paired t-test, also referred to as the paired-samples t-test or dependent t-test, is used to determine whether the mean of a dependent variable (e.g., weight, anxiety level, salary, reaction time, etc.) is the same in two related groups (e.g., two groups of participants that are measured at two different "time points" or who undergo two different "conditions"). For example:
+The paired t-test, also referred to as the paired-samples t-test or dependent t-test, is used to determine whether the mean of a dependent variable (e.g., weight, anxiety level, salary, reaction time, etc.) is the same across two different situations **within the same sample** (e.g., blood pressure before, and after the treatment, average grade in one course vs. average grade in another course for the same class). This allows us to answer following types of questions:
 
 - Is the drug against blood pressure actually working?
 - Does getting an additional training affect the salaries of managers?
 
 In order to run paired t-test we will rely on `ttest_rel` from `scipy.stats`.
+
 We will compare weight of the 20 mice before and after a certain treatment X to find out if the treatment has any significant effect on their weights. As exercise we will perform the similar test on wages of managers before and after getting the additional training Y.
 
 `@instructions`
