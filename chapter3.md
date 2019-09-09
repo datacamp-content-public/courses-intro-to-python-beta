@@ -501,19 +501,19 @@ We could compare `petal_length`, `sepal_length`, `petal_width` or `sepal_width`.
 # Importing the libraries
 import pandas as pd
 import seaborn as sns
-from scipy.stats import ttest_ind
+from scipy.stats import ttest_ind as tind
 
 # Loading the data
 df = sns.load_dataset("iris")
 
-# Creating our two sample datasets
+# Separating two samples into different data frames
 df1 = df[df.species == 'setosa']
 df2 = df[df.species == 'versicolor']
          
-# Comparing petal length on both species
-print(ttest_ind(df1.petal_length, df2.petal_length))
+# Comparing petal length of the two species
+tind(df1.petal_length, df2.petal_length)
 
-# [DIY] Compare petal with on both species
+# [DIY] Compare petal width of the two species
 
 ```
 
@@ -522,20 +522,20 @@ print(ttest_ind(df1.petal_length, df2.petal_length))
 # Importing the libraries
 import pandas as pd
 import seaborn as sns
-from scipy.stats import ttest_ind
+from scipy.stats import ttest_ind as tind
 
 # Loading the data
 df = sns.load_dataset("iris")
 
-# Creating our two sample datasets
+# Separating two samples into different data frames
 df1 = df[df.species == 'setosa']
 df2 = df[df.species == 'versicolor']
          
-# Comparing petal length on both species
-print(ttest_ind(df1.petal_length, df2.petal_length))
+# Comparing petal length of the two species
+tind(df1.petal_length, df2.petal_length)
 
-# [DIY] Compare petal with on both species
-ttest_ind(df1.petal_width, df2.petal_width)
+# [DIY] Compare petal width of the two species
+tind(df1.petal_width, df2.petal_width)
 
 ```
 
