@@ -563,9 +563,9 @@ The paired t-test, also referred to as the paired-samples t-test or dependent t-
 - Is the drug against blood pressure actually working?
 - Does getting an additional training affect the salaries of managers?
 
-In order to run paired t-test we will rely on `ttest_rel` from `scipy.stats`.
+In order to run paired t-test we will simply need to use our one-sample t-test from chapter 3.4.
 
-We will compare weight of the 20 mice before and after a certain treatment X to find out if the treatment has any significant effect on their weights. As exercise we will perform the similar test on wages of managers before and after getting the additional training Y.
+Recall from the lecture, that pared t-test requires construction of a new variable which will be the difference of two observations per subject, and then testing whether the mean of this new variable is significantly different from zero. 
 
 `@instructions`
 - Perform the paired t-test
@@ -583,27 +583,21 @@ We will compare weight of the 20 mice before and after a certain treatment X to 
 ```{python}
 # importing the libraries
 import numpy as np
-from scipy.stats import ttest_rel
+from statsmodels.stats.weightstats import DescrStatsW as smstat
 
-# Weights before treatment
-before = np.array([200.1, 190.9, 192.7, 213, 241.4, 196.9, 172.2, 185.5, 205.2, 193.7])
+# Let's create our dataset.
+# Create numpy array with weights of our pacients before the treatment
+before = np.array([82.0, 90.2, 92.7, 113, 101.4, 96.9, 72.2, 85.5, 105.2, 93.7])
 
-# [DIY] Create and array named after with the following values
-# 392.9, 393.2, 345.1, 393, 434, 427.9, 422, 383.9, 392.3, 352.2
+# [DIY] Create numpy array (called "after") with weights of the pacients after the treatment with following values 392.9, 393.2, 345.1, 393, 434, 427.9, 422, 383.9, 392.3, 352.2
 
+# Notice that the order of the patients should be the same across two arrais!
 
-# Perform the paired t-test between weights before and after
-ttest_rel(before, after)
+# [DIY] create the numpy array (called "difference") that would calculate the difference in weights between before and after treatment for each patient (by subtracting weights before treatment from those after the treatment)
 
-# Create an array of wages before the training
-wages_before = np.array([110.2, 114.3, 100, 96.8, 123.6, 114.2, 108.7])
+# [DIY] Perform a two sided paired t-test between weights before and after
 
-# [DIY] Create an array named wages_after with the folliwing values
-# 114, 115.6, 110, 99, 123.6, 115, 110.2
-
-
-# [DIY] Perform the paired t-test between wages before and after
-
+# [DIY] Test whether we have any statistical evidence that patients loose weight after treatment
 
 ```
 
@@ -611,28 +605,25 @@ wages_before = np.array([110.2, 114.3, 100, 96.8, 123.6, 114.2, 108.7])
 ```{python}
 # importing the libraries
 import numpy as np
-from scipy.stats import ttest_rel
+from statsmodels.stats.weightstats import DescrStatsW as smstat
 
-# Weights before treatment
-before = np.array([200.1, 190.9, 192.7, 213, 241.4, 196.9, 172.2, 185.5, 205.2, 193.7])
+# Let's create our dataset.
+# Create numpy array with weights of our pacients before the treatment
+before = np.array([82.0, 90.2, 92.7, 113, 101.4, 96.9, 72.2, 85.5, 105.2, 93.7])
 
-# [DIY] Create and array named after with the following values
-# 392.9, 393.2, 345.1, 393, 434, 427.9, 422, 383.9, 392.3, 352.2
-after = np.array([392.9, 393.2, 345.1, 393, 434, 427.9, 422, 383.9, 392.3, 352.2])
+# [DIY] Create numpy array (called "after") with weights of the pacients after the treatment with following values 392.9, 393.2, 345.1, 393, 434, 427.9, 422, 383.9, 392.3, 352.2
+after = np.array([80.9, 91.2, 85.1, 103, 102, 97.9, 72, 83.9, 92.3, 92.2])
 
-# Perform the paired t-test between weights before and after
-ttest_rel(before, after)
+# Notice that the order of the patients should be the same across two arrais.
 
-# Create an array of wages before the training
-wages_before = np.array([110.2, 114.3, 100, 96.8, 123.6, 114.2, 108.7])
+# [DIY] create the numpy array (called "difference") that would calculate the difference in weights between before and after treatment for each patient (by subtracting weights before treatment from those after the treatment)
+difference = after - before
 
-# [DIY] Create an array named wages_after with the folliwing values
-# 114, 115.6, 110, 99, 123.6, 115, 110.2
-wages_after = np.array([114, 115.6, 110, 99, 123.6, 115, 110.2])
+# [DIY] Perform a two sided paired t-test between weights before and after
+smstat(difference).ttest_mean(0)
 
-# [DIY] Perform the paired t-test between wages before and after
-ttest_rel(wages_before, wages_after)
-
+# [DIY] Test whether we have any statistical evidence that patients loose weight after treatment
+smstat(difference).ttest_mean(0, alternative="smaller")
 ```
 
 `@sct`
