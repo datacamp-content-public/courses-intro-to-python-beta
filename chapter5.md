@@ -22,8 +22,6 @@ The main workflow of predictive modeling looks as follows:
 
 Before proceeding to the next chapter, lets refresh what we have learned so far in couple of lines of code.
 
-
-
 `@instructions`
 1. Import libraries numpy, seaborn and matplotlib.pyplot
 2. Print out the first rows of the dataset
