@@ -175,7 +175,7 @@ Create a few variables.
 
 `@pre_exercise_code`
 ```{python}
-x = 3
+
 
 ```
 
@@ -192,6 +192,8 @@ x = 3
 
 `@solution`
 ```{python}
+# Define a variable x and assign the value 3 to it
+x = 3
 # [DIY] Define a variable y and assign value 5 to it
 y = 5
 # [DIY] Define a variable z which is the sum of x and y
