@@ -123,13 +123,11 @@ train_chunk, test_chunk = tts(df, train_size = 0.75)
 # Note that we do not need to specify 25% once we specify 75!
 
 # [DIY] Create a numpy array (named "A") with these values 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-A = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 # [DIY] Split this array into training and test chunks 80/20 (and name them "train_a" and "test_a")
-train_a, test_a = tts(A, train_size = 0.8)
 
 # [DIY] Visualize the test dataset
-test_a
+
 ```
 
 `@solution`
@@ -147,11 +145,13 @@ train_chunk, test_chunk = tts(df, train_size = 0.75)
 # Note that we do not need to specify 25% once we specify 75!
 
 # [DIY] Create a numpy array (named "A") with these values 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+A = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 # [DIY] Split this array into training and test chunks 80/20 (and name them "train_a" and "test_a")
+train_a, test_a = tts(A, train_size = 0.8)
 
 # [DIY] Visualize the test dataset
-
+test_a
 ```
 
 `@sct`
