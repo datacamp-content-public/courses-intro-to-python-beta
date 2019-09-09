@@ -417,20 +417,16 @@ from statsmodels.stats.weightstats import DescrStatsW as smstat
 # Loading the data
 df = sns.load_dataset("iris")
 
-# Perform the t-test on sepal length against 5.6
-# first we give the data to ststat and then we run the function
-# ttest_mean with the mean we want to check against
+# Perform the two sided t-test on sepal length with null hypotheses of mean being equal to 5.6
+# First we need to specify the data and then run the function ttest_mean with the mean we want to check against
 smstat(df.sepal_length).ttest_mean(5.6)
 
-# [DIY] Perform the t-test on sepal width against 3
+# [DIY] Perform the t-test on sepal width with the null hypotheses of mean being equal to 3
 
-
-# Perform the t-test on sepal length against 5.6 
-# with alternative hypothesis being greater
+# Perform the t-test on sepal length with the mean being equal to 5.6 and the alternative hypothesis: the mean of sepal length being greater than null hypothesis
 smstat(df.sepal_length).ttest_mean(5.6, alternative = "larger")
 
-# [DIY] Perform the t-test on sepal width against 3
-# with alternative hypothesis being smaller
+# [DIY] Perform the t-test on sepal length with the mean being equal to 5.6 and the alternative hypothesis: the mean of sepal length being smaller than 5.6
 
 ```
 
@@ -443,20 +439,17 @@ from statsmodels.stats.weightstats import DescrStatsW as smstat
 # Loading the data
 df = sns.load_dataset("iris")
 
-# Perform the t-test on sepal length against 5.6
-# first we give the data to ststat and then we run the function
-# ttest_mean with the mean we want to check against
+# Perform the two sided t-test on sepal length with null hypotheses of mean being equal to 5.6
+# First we need to specify the data and then run the function ttest_mean with the mean we want to check against
 smstat(df.sepal_length).ttest_mean(5.6)
 
-# [DIY] Perform the t-test on sepal width against 3
+# [DIY] Perform the t-test on sepal width with the null hypotheses of mean being equal to 3
 smstat(df.sepal_width).ttest_mean(3)
 
-# Perform the t-test on sepal length against 5.6 
-# with alternative hypothesis being greater
+# Perform the t-test on sepal length with the mean being equal to 5.6 and the alternative hypothesis: the mean of sepal length being greater than null hypothesis
 smstat(df.sepal_length).ttest_mean(5.6, alternative = "larger")
 
-# [DIY] Perform the t-test on sepal width against 3
-# with alternative hypothesis being smaller
+# [DIY] Perform the t-test on sepal length with the mean being equal to 5.6 and the alternative hypothesis: the mean of sepal length being smaller than 5.6
 smstat(df.sepal_width).ttest_mean(3, alternative = "smaller")
 ```
 
