@@ -1,5 +1,5 @@
 ---
-title: 'Out of sample prediction'
+title: Prediction
 description: 'Out of sample prediction with Python'
 ---
 

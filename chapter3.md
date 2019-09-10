@@ -1,5 +1,5 @@
 ---
-title: 'Hyphotesis testing'
+title: Testing
 description: 'Hyphotesis testin with Python'
 ---
 

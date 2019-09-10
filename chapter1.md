@@ -1,6 +1,6 @@
 ---
-title: 'Introduction to Python'
-description: 'Introduction to Python'
+title: Introduction
+description: Intro
 free_preview: true
 ---
 

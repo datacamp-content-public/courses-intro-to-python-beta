@@ -1,5 +1,5 @@
 ---
-title: Regression
+title: Inference
 description: "Regression analysis\n"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 'Data and visualizatoin'
+title: Data
 description: 'Introduction to NumPy, Pandas and simple plots'
 ---
 
