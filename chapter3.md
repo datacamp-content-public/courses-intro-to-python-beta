@@ -565,7 +565,7 @@ The paired t-test, also referred to as the paired-samples t-test or dependent t-
 
 In order to run paired t-test we will simply need to use our one-sample t-test from chapter 3.4.
 
-Recall from the lecture, that pared t-test requires construction of a new variable which will be the difference of two observations per subject, and then testing whether the mean of this new variable is significantly different from zero. 
+Recall from the lecture, that pared t-test requires construction of a new variable which will be the difference of two observations per subject, and then testing whether the mean of this new variable is significantly different from zero.
 
 `@instructions`
 - Perform the paired t-test
