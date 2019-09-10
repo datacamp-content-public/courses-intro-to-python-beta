@@ -196,8 +196,6 @@ True N| 8 | 432
 Here the model performed fairly well. It made only 20 mistakes while classifying 532 entries correctly.
 For confusion matrix we will use `confusion_matrix` from `sklearn.metrics`.
 
-
-
 `@instructions`
 1. Split the dataset into training and test (X and y)
 2. Fit the Logit model
