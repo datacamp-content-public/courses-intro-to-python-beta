@@ -1,4 +1,16 @@
-title: Intro to Python
-description: Course description goes here.
+title: Introduction to Python
+description: >-
+  This is an online supplement to the Data Science course lead by Dr. Zakaria
+  Babutsidze and Mr. Emil Mirzayev within the curriculum of MSc in Digital
+  Business, Data Analysis and Management at SKEMA Business School.
+
+
+  It is developed to aid students following the course throughout their journey,
+  familiarising them with minimal Python tools they need to digest theoretical
+  concepts that are covered in class.
+
+
+  This DataCamp course is open to anybody, even those who are not currently
+  following the above-mentioned course at SKEMA Business School.
 programming_language: python
 from: 'python-base-prod:v1.0.2'
