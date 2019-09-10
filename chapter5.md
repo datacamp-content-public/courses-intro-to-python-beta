@@ -170,31 +170,29 @@ xp: 100
 ```
 
 It is now time to combine everything learned before and proceed to predictive modeling part. Our workflow will be as follows:
-- Generate a synthetic classification dataset with two classes
-- Look at the data
+- Load data
 - Split the dataset into training and test parts
-- Fit the logit model using the training set
+- Fit the (Logit) model using the training set
 - Predict the test set
 - Evaluate the results
 
-First we will load our data, `mtcars`, in this example and define our `X` and `y` variables. After that, we will use `train_test_split` and split them. Modeling and prediction will be done using `Logit` from `statsmodels`.
+First we will load our data, `mtcars`, in this example and define our `y` (our dependent variable) and `X` (a set of independent variables). After that, we will use `train_test_split` and split our dataset. Modeling and prediction will be done using `Logit` from `statsmodels`.
 
-After making predictions, the next necessary step is to measure the performance of the model. Depending on the task type, different measurements should be used. For linear regression, it would be sum of squared errors for example. In our case, we have a binary classification problem. There are a number of metrics which is used in evaluation of such problems depending on domain. Some of them are:
+After making predictions, the next necessary step is to measure the performance of the model. Depending on the task type, different measurements should be used. For OLS regression, it would be sum of squared errors for example. In this example we have a binary classification problem (our dependent variable is a 1/0 variable). There are a number of metrics which is used in evaluation of such problems:
 - Confusion matrix
 - Roc-auc score
 - Accuracy
-- Precision
-- Recall
-- F1 score
+- etc.
 
-In this case we will go with confusion matrix. Confusion matrix is ideal for binary classification problems because of its simplicity. Row-wise it shows actual positive and negative classes and column-wise predicted positive and negative classes. Look at this table of results of some model:
-Names| Predicted P| Predicted N
+In this case we will go with confusion matrix. Confusion matrix is ideal for binary classification problems because of its simplicity. Row-wise it shows the count of actual 1s and 0s in our test dataset, and column-wise it shows predicted 1s and 0s from our model. Look at this table of results of a model:
+Names| Predicted 1| Predicted 0
 :-----:|:-----:|:-----:
-True P| 100 | 12 
-True N| 8 | 432 
+True 1| 100 | 12 
+True 0| 8 | 432 
 
 Here the model performed fairly well. It made only 20 mistakes while classifying 532 entries correctly.
-For confusion matrix we will use `confusion_matrix` from `sklearn.metrics`.
+
+For generating the confusion matrix we will use `confusion_matrix` from `sklearn.metrics`.
 
 `@instructions`
 1. Split the dataset into training and test (X and y)
@@ -219,55 +217,37 @@ import statsmodels.api as sm
 import pandas as pd
 import numpy as np
 
-# We will use mtcars dataset from the logistic regression exercise
+# Load the data. We will use mtcars dataset from the logistic regression exercise
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-# Our dependent variable y will be am - > automatic or manual transmission
-# Our independent variable X will be cyl and hp -> cylinder count and horsepower
-# X is matrix, y is a vector. So, X is written with capital letter
+# Our dependent variable be am (automatic transmission) - this is our y
+y = df["am"]
+# Our independent variables will be cyl (cylinder count) and hp (horseoiwer) - this is our X. As we can have more than one independent variables (like in this case, we capitalize X, this is a standard matrix notation)
 X = df[["cyl", "hp"]]
 
-y = df["am"]
+# Splitting the dataset into training and test X and y values with 70% of data used as training set.
+X_train, X_test, y_train, y_test = tts(X, y, train_size = 0.7)
 
-# [DIY] Split the dataset into training and test X and y values
-# 75/25. Names of variables should be
-# X_train, X_test, y_train, y_test
-X_train, X_test, y_train, y_test = 
+# Fitting the model on training data using sm.Logit. Notice that this method uses different syntax for fitting the logistic model than one we used in chapter 4.4
+model = sm.Logit(y_train, X_train).fit()
 
-# [DIY] Create and then fit the model on training X and y using sm.Logit
-# pay attention to arguments, dependent variable comes first!
-model = 
-
-# Make predictions using test set
+# Create a new variable and load it with predicted values using the estimated model
 y_pred = model.predict(X_test)
 
-# Now let's see first how to use confusion matrix
-# Create an array of true  values
-true_vals = np.array([0, 0, 0, 1, 1, 0, 1, 0])
+# Print the predicted values of our model
+y_pred
 
-# Create an array of predicted values
-predicted_vals = np.array([0, 0, 1, 1, 1, 0, 1, 0])
+# As you see, logistic model delivers a value between 0 and 1 which can be viewed as a probability that a current observation is equalto 1.
+# For confusion matrix, we need our predictions to be strictly either 0 or 1.
+# So, we have to convert them using some theshold. Selecting a threshold involves thorough deliberations, but let's use 0.4 here.
+# Using neat numpy trick here, the command bellow converts everything below a specified threshold  to 0 and everything above it to 1.
+y_pred = (y_pred > 0.4).astype(int)
 
-# Print out the confusion matrix
-print(cnfm(true_vals, predicted_vals))
+# [DIY] Now look at predicted values
 
-# Print the predicted values of our model. Do you recall the name?
-print(y_pred)
+# [DIY] Display the confusion matrix of the model: google the syntax for confusion_matrix routine and take into account the alias that we have given to it. Recall the true values for y are stored in y_test
 
-# For confusion matrix, we need our predictions to be either 0 or 1.
-# So, we have to convert them using some theshold.
-# For logit models it is usually 0.5.
-# Everything below it will be 0 and above 1.
-# Using neat numpy trick here
-y_pred = (y_pred > 0.5).astype(int)
-
-# [DIY] Now print out the predicted values
-
-
-# [DIY] Print the confusion matrix of the model
-# Recall the true values for y are y_test
-
-
+# [DIY] Once you have completed this exercise and successfully displayed the confussion matrix, re-run the whole exercise. Did you get a different confusion matrix? [If not, re-wrinte it again]. Ask yourself -- how is it possible that you get a different confusion matrix for different runs?! 
 ```
 
 `@solution`
@@ -279,54 +259,39 @@ import statsmodels.api as sm
 import pandas as pd
 import numpy as np
 
-# We will use mtcars dataset from the logistic regression exercise
+# Load the data. We will use mtcars dataset from the logistic regression exercise
 df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
 
-# Our dependent variable y will be am - > automatic or manual transmission
-# Our independent variable X will be cyl and hp -> cylinder count and horsepower
-# X is matrix, y is a vector. So, X is written with capital letter
+# Our dependent variable be am (automatic transmission) - this is our y
+y = df["am"]
+# Our independent variables will be cyl (cylinder count) and hp (horseoiwer) - this is our X. As we can have more than one independent variables (like in this case, we capitalize X, this is a standard matrix notation)
 X = df[["cyl", "hp"]]
 
-y = df["am"]
+# Splitting the dataset into training and test X and y values with 70% of data used as training set.
+X_train, X_test, y_train, y_test = tts(X, y, train_size = 0.7)
 
-# [DIY] Split the dataset into training and test X and y values
-# 75/25. Names of variables should be
-# X_train, X_test, y_train, y_test
-X_train, X_test, y_train, y_test = tts(X, y, train_size = 0.75)
-
-# [DIY] Create and then fit the model on training X and y using sm.Logit
-# pay attention to arguments, dependent variable comes first!
+# Fitting the model on training data using sm.Logit. Notice that this method uses different syntax for fitting the logistic model than one we used in chapter 4.4
 model = sm.Logit(y_train, X_train).fit()
 
-# Make predictions using test set
+# Create a new variable and load it with predicted values using the estimated model
 y_pred = model.predict(X_test)
 
-# Create an array of true  values
-true_vals = np.array([0, 0, 0, 1, 1, 0, 1, 0])
+# Print the predicted values of our model
+y_pred
 
-# Create an array of predicted values
-predicted_vals = np.array([0, 0, 1, 1, 1, 0, 1, 0])
+# As you see, logistic model delivers a value between 0 and 1 which can be viewed as a probability that a current observation is equalto 1.
+# For confusion matrix, we need our predictions to be strictly either 0 or 1.
+# So, we have to convert them using some theshold. Selecting a threshold involves thorough deliberations, but let's use 0.4 here.
+# Using neat numpy trick here, the command bellow converts everything below a specified threshold  to 0 and everything above it to 1.
+y_pred = (y_pred > 0.4).astype(int)
 
-# Print out the confusion matrix
-print(cnfm(true_vals, predicted_vals))
+# [DIY] Now look at predicted values
+y_pred
 
-# Print the predicted values of our model. Do you recall the name?
-print(y_pred)
+# [DIY] Display the confusion matrix of the model: google the syntax for confusion_matrix routine and take into account the alias that we have given to it. Recall the true values for y are stored in y_test
+cnfm(y_test, y_pred)
 
-# For confusion matrix, we need our predictions to be either 0 or 1.
-# So, we have to convert them using some theshold.
-# For logit models it is usually 0.5.
-# Everything below it will be 0 and above 1.
-# Using neat numpy trick here
-y_pred = (y_pred > 0.5).astype(int)
-
-# [DIY] Now print out the predicted values
-print(y_pred)
-
-# [DIY] Print the confusion matrix of the model
-# Recall the true values for y are y_test
-print(cnfm(y_test, y_pred))
-
+# [DIY] Once you have completed this exercise and successfully displayed the confussion matrix, re-run the whole exercise. Did you get a different confusion matrix? [If not, re-wrinte it again]. Ask yourself -- how is it possible that you get a different confusion matrix for different runs?! 
 ```
 
 `@sct`
