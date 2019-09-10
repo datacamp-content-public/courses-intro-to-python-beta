@@ -161,7 +161,7 @@ test_a
 
 ---
 
-## Modeling
+## Modeling and evaluation
 
 ```yaml
 type: NormalExercise
@@ -176,105 +176,7 @@ It is now time to combine everything learned before and proceed to predictive mo
 - Fit the logit model using the training set
 - Predict the test set
 
-In order to generate our classification dataset we will use `make_blobs` function from `sklearn.datasets`. It will generate `X` and `y` values for our model. Then we will use `seaborn.scatterplot` to look at the generated samples and see visually how they are separated. After that, we will use `train_test_split` and split the data. Modeling and prediction will be done using `Logit` from `statsmodels`.
-
-`@instructions`
-
-
-`@hint`
-
-
-`@pre_exercise_code`
-```{python}
-
-```
-
-`@sample_code`
-```{python}
-# Loading the libraries
-from sklearn.datasets import make_blobs
-from sklearn.model_selection import train_test_split
-import statsmodels.api as sm
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-# Generating our dataset using the following paramters
-# centers - how many classes we want to generate
-# n_features - number of exogenous variables
-# random_state - for reproducability
-# cluster_std - overlapping of cluster centers
-X, y = make_blobs(n_samples= 100, centers= 2, 
-                   n_features= 2, random_state= 1, 
-                   cluster_std= 3)
-  
-# Lets look at our data
-# hue - allows us to color points based on y
-sns.scatterplot(X[:, 0], X[:, 1], hue = y)
-plt.show()
-
-# [DIY] Split the dataset into training and test X and y values
-# 75/25. Names of variables should be
-# X_train, X_test, y_train, y_test
-
-
-# [DIY] Create and then fit the model on training X and y using sm.Logit
-# pay attention to arguments, endogenous variable comes first!
-model = 
-
-# Make predictions using test set
-y_pred = model.predict(X_test)
-```
-
-`@solution`
-```{python}
-# Loading the libraries
-from sklearn.datasets import make_blobs
-from sklearn.model_selection import train_test_split
-import statsmodels.api as sm
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-# Generating our dataset using the following paramters
-# centers - how many classes we want to generate
-# n_features - number of exogenous variables
-# random_state - for reproducability
-# cluster_std - overlapping of cluster centers
-X, y = make_blobs(n_samples= 100, centers= 2, 
-                   n_features= 2, random_state= 1, 
-                   cluster_std= 3)
-  
-# Lets look at our data
-# hue - allows us to color points based on y
-sns.scatterplot(X[:, 0], X[:, 1], hue = y)
-plt.show()
-
-# [DIY] Split the dataset into training and test X and y values
-# 75/25. Names of variables should be
-# X_train, X_test, y_train, y_test
-X_train, X_test, y_train, y_test = train_test_split(X, y, train_size = 0.75)
-
-# [DIY] Create and then fit the model on training X and y using sm.Logit
-# pay attention to arguments, endogenous variable comes first!
-model = sm.Logit(y_train, X_train).fit()
-
-# Make predictions using test set
-y_pred = model.predict(X_test)
-```
-
-`@sct`
-```{python}
-
-```
-
----
-
-## Measuring the performance
-
-```yaml
-type: NormalExercise
-key: 672577d1ae
-xp: 100
-```
+First we will load our data, `mtcars`, in this example and define our `X` and `y` variables. After that, we will use `train_test_split` and split them. Modeling and prediction will be done using `Logit` from `statsmodels`.
 
 After making predictions, the next necessary step is to measure the performance of the model. Depending on the task type, different measurements should be used. For linear regression, it would be sum of squared errors for example. In our case, we have a binary classification problem. There are a number of metrics which is used in evaluation of such problems depending on domain. Some of them are:
 - Confusion matrix
@@ -293,54 +195,54 @@ True N| 8 | 432
 Here our model performed fairly well. It made only 20 mistakes while classifying 532 entries correctly.
 For confusion matrix we will use `confusion_matrix` from `sklearn.metrics`.
 
-Results and all variables from the previous chapter are available already.
+
 
 `@instructions`
-- Print out the confusion matrix for our model
-- What does the results you see imply?
+1. Split the dataset into training and test (X and y)
+2. Fit the Logit model
+3. Print out the confusion matrix
+4. What the results you see imply?
 
 `@hint`
 
 
 `@pre_exercise_code`
 ```{python}
-# Loading the libraries
-from sklearn.datasets import make_blobs
-from sklearn.model_selection import train_test_split
-import statsmodels.api as sm
-import seaborn as sns
-import matplotlib.pyplot as plt
 
-# Generating our dataset using the following paramters
-# centers - how many classes we want to generate
-# n_features - number of exogenous variables
-# random_state - for reproducability
-# cluster_std - overlapping of cluster centers
-X, y = make_blobs(n_samples= 100, centers= 2, 
-                   n_features= 2, random_state= 1, 
-                   cluster_std= 3)
-
-# [DIY] Split the dataset into training and test X and y values
-# 75/25. Names of variables should be
-# X_train, X_test, y_train, y_test
-X_train, X_test, y_train, y_test = train_test_split(X, y, train_size = 0.75)
-
-# [DIY] Create and then fit the model on training X and y using sm.Logit
-# pay attention to arguments, endogenous variable comes first!
-model = sm.Logit(y_train, X_train).fit()
-
-# Make predictions using test set
-y_pred = model.predict(X_test)
 ```
 
 `@sample_code`
 ```{python}
-# Everything is loaded from the previous chapter.
-# We do not need to import or run them again
-# We just need to import confusion_matrix and numpy
-from sklearn.metrics import confusion_matrix
+# Loading the libraries
+from sklearn.model_selection import train_test_split as tts
+from sklearn.metrics import confusion_matrix as cnfm
+import statsmodels.api as sm
+import pandas as pd
 import numpy as np
 
+# We will use mtcars dataset from the logistic regression exercise
+df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+# Our dependent variable y will be am - > automatic or manual transmission
+# Our independent variable X will be cyl and hp -> cylinder count and horsepower
+# X is matrix, y is a vector. So, X is written with capital letter
+X = df[["cyl", "hp"]]
+
+y = df["am"]
+
+# [DIY] Split the dataset into training and test X and y values
+# 75/25. Names of variables should be
+# X_train, X_test, y_train, y_test
+X_train, X_test, y_train, y_test = 
+
+# [DIY] Create and then fit the model on training X and y using sm.Logit
+# pay attention to arguments, dependent variable comes first!
+model = 
+
+# Make predictions using test set
+y_pred = model.predict(X_test)
+
+# Now let's see first how to use confusion matrix
 # Create an array of true  values
 true_vals = np.array([0, 0, 0, 1, 1, 0, 1, 0])
 
@@ -348,7 +250,7 @@ true_vals = np.array([0, 0, 0, 1, 1, 0, 1, 0])
 predicted_vals = np.array([0, 0, 1, 1, 1, 0, 1, 0])
 
 # Print out the confusion matrix
-print(confusion_matrix(true_vals, predicted_vals))
+print(cnfm(true_vals, predicted_vals))
 
 # Print the predicted values of our model. Do you recall the name?
 print(y_pred)
@@ -365,18 +267,40 @@ y_pred = (y_pred > 0.5).astype(int)
 
 # [DIY] Print the confusion matrix of the model
 # Recall the true values for y are y_test
-
 
 
 ```
 
 `@solution`
 ```{python}
-# Everything is loaded from the previous chapter.
-# We do not need to import or run them again
-# We just need to import confusion_matrix and numpy
-from sklearn.metrics import confusion_matrix
+# Loading the libraries
+from sklearn.model_selection import train_test_split as tts
+from sklearn.metrics import confusion_matrix as cnfm
+import statsmodels.api as sm
+import pandas as pd
 import numpy as np
+
+# We will use mtcars dataset from the logistic regression exercise
+df = pd.read_csv("https://gist.githubusercontent.com/seankross/a412dfbd88b3db70b74b/raw/5f23f993cd87c283ce766e7ac6b329ee7cc2e1d1/mtcars.csv")
+
+# Our dependent variable y will be am - > automatic or manual transmission
+# Our independent variable X will be cyl and hp -> cylinder count and horsepower
+# X is matrix, y is a vector. So, X is written with capital letter
+X = df[["cyl", "hp"]]
+
+y = df["am"]
+
+# [DIY] Split the dataset into training and test X and y values
+# 75/25. Names of variables should be
+# X_train, X_test, y_train, y_test
+X_train, X_test, y_train, y_test = tts(X, y, train_size = 0.75)
+
+# [DIY] Create and then fit the model on training X and y using sm.Logit
+# pay attention to arguments, dependent variable comes first!
+model = sm.Logit(y_train, X_train).fit()
+
+# Make predictions using test set
+y_pred = model.predict(X_test)
 
 # Create an array of true  values
 true_vals = np.array([0, 0, 0, 1, 1, 0, 1, 0])
@@ -385,7 +309,7 @@ true_vals = np.array([0, 0, 0, 1, 1, 0, 1, 0])
 predicted_vals = np.array([0, 0, 1, 1, 1, 0, 1, 0])
 
 # Print out the confusion matrix
-print(confusion_matrix(true_vals, predicted_vals))
+print(cnfm(true_vals, predicted_vals))
 
 # Print the predicted values of our model. Do you recall the name?
 print(y_pred)
@@ -402,8 +326,7 @@ print(y_pred)
 
 # [DIY] Print the confusion matrix of the model
 # Recall the true values for y are y_test
-print(confusion_matrix(y_test, y_pred))
-
+print(cnfm(y_test, y_pred))
 
 ```
 
