@@ -175,24 +175,25 @@ It is now time to combine everything learned before and proceed to predictive mo
 - Split the dataset into training and test parts
 - Fit the logit model using the training set
 - Predict the test set
+- Evaluate the results
 
 First we will load our data, `mtcars`, in this example and define our `X` and `y` variables. After that, we will use `train_test_split` and split them. Modeling and prediction will be done using `Logit` from `statsmodels`.
 
 After making predictions, the next necessary step is to measure the performance of the model. Depending on the task type, different measurements should be used. For linear regression, it would be sum of squared errors for example. In our case, we have a binary classification problem. There are a number of metrics which is used in evaluation of such problems depending on domain. Some of them are:
 - Confusion matrix
-- Roc auc score
+- Roc-auc score
 - Accuracy
 - Precision
 - Recall
 - F1 score
 
-In this case we will go with confusion matrix. Confusion matrix is ideal for binary classification problems because of its simplicity. Row-wise it shows actual positive and negative classes and column-wise predicted positive and negative classes. Look at this table:
+In this case we will go with confusion matrix. Confusion matrix is ideal for binary classification problems because of its simplicity. Row-wise it shows actual positive and negative classes and column-wise predicted positive and negative classes. Look at this table of results of some model:
 Names| Predicted P| Predicted N
 :-----:|:-----:|:-----:
 True P| 100 | 12 
 True N| 8 | 432 
 
-Here our model performed fairly well. It made only 20 mistakes while classifying 532 entries correctly.
+Here the model performed fairly well. It made only 20 mistakes while classifying 532 entries correctly.
 For confusion matrix we will use `confusion_matrix` from `sklearn.metrics`.
 
 
