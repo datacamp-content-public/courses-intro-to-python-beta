@@ -226,7 +226,7 @@ model1 = smf.ols("mpg ~ cyl + wt", data = df).fit()
 print(model1.summary())
 
 #[DIY] Add another dependent variable "hp" to the regression performed above and output the summary
-
+model2 = 
 
 # Produce the scaterplot of the relation between "mpg" and "cyl". You cannot have more than two variables as you are producing a two-dimentional plot.
 sns.regplot(x = "mpg", y = "cyl", data  = df)
