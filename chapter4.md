@@ -175,6 +175,7 @@ Ex().check_function("statsmodels.formula.api.ols", 1).multi(
   check_args("formula").has_equal_value(),
   check_args("data").has_equal_value()
 )
+Ex().check_object("model2").has_equal_value()
 Ex().check_function("model2.summary").has_equal_output()
 success_msg("Good Job!")
 ```
