@@ -565,7 +565,7 @@ The paired t-test, also referred to as the paired-samples t-test or dependent t-
 
 In order to run paired t-test we will simply need to use our one-sample t-test from chapter 3.4.
 
-Recall from the lecture, that pared t-test requires construction of a new variable which will be the difference of two observations per subject, and then testing whether the mean of this new variable is significantly different from zero.
+Recall from the lecture, that paired t-test requires construction of a new variable which will be the difference of two observations per subject, and then testing whether the mean of this new variable is significantly different from zero.
 
 `@instructions`
 - Perform the paired t-test
@@ -628,5 +628,8 @@ smstat(difference).ttest_mean(0, alternative="smaller")
 
 `@sct`
 ```{python}
-
+Ex().check_object("after").has_equal_value()
+Ex().check_object("difference").has_equal_value()
+Ex().check_function("statsmodels.stats.weightstats.DescrStatsW.ttest_mean",0).has_equal_value()
+Ex().check_function("statsmodels.stats.weightstats.DescrStatsW.ttest_mean",1).has_equal_value()
 ```
