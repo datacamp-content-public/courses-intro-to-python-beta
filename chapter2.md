@@ -15,7 +15,7 @@ The bare bone of Python data science ecosystem is NumPy array. Thinks of this, a
 
 Other similar tools that you might have heard of (like Pandas, Matplotlib, Scikit-learn) are all based and built on NumPy arrays. That's why, understanding the functionality of NumPy is crucial.
 
-In order to use the functionality of NumPy one need to import it. In order to import NumPy you need to use the `import` keyword.
+In order to use the functionality of NumPy one needs to import it. In order to import NumPy you need to use the `import` keyword.
 ```
 import numpy as np
 ```
@@ -445,6 +445,15 @@ plt.show()
 `@sct`
 ```{python}
 Ex().check_object('y').has_equal_value()
-Ex().check_function("seaborn.distplot").has_equal_output()
+Ex().check_object('a').has_equal_value()
+Ex().check_object('b').has_equal_value()
+Ex().check_function("seaborn.distplot", 3).has_equal_output()
+Ex().check_function("seaborn.distplot", 4).has_equal_output()
+Ex().check_function("seaborn.scatterplot", 1).multi(
+  check_args("x").has_equal_value(),
+  check_args("y").has_equal_value()
+  
+)
+
 success_msg("Good job!")
 ```
