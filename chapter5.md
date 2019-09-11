@@ -77,7 +77,7 @@ print(df.head())
 
 `@sct`
 ```{python}
-
+Ex().check_function("df.head").has_equal_output()
 ```
 
 ---
@@ -156,6 +156,10 @@ test_a
 
 `@sct`
 ```{python}
+Ex().check_object("A").has_equal_value()
+Ex().check_object("train_a").has_equal_value()
+Ex().check_object("test_a").has_equal_value()
+
 
 ```
 
@@ -195,10 +199,8 @@ Here the model performed fairly well. It made only 20 mistakes while classifying
 For generating the confusion matrix we will use `confusion_matrix` from `sklearn.metrics`.
 
 `@instructions`
-1. Split the dataset into training and test (X and y)
-2. Fit the Logit model
-3. Print out the confusion matrix
-4. What the results you see imply?
+1. Print out the confusion matrix
+2. What the results you see imply?
 
 `@hint`
 
@@ -247,7 +249,7 @@ y_pred = (y_pred > 0.4).astype(int)
 
 # [DIY] Display the confusion matrix of the model: google the syntax for confusion_matrix routine and take into account the alias that we have given to it. Recall the true values for y are stored in y_test
 
-# [DIY] Once you have completed this exercise and successfully displayed the confussion matrix, re-run the whole exercise. Did you get a different confusion matrix? [If not, re-wrinte it again]. Ask yourself -- how is it possible that you get a different confusion matrix for different runs?! 
+# [DIY] Once you have completed this exercise and successfully displayed the confussion matrix, re-run the whole exercise. Did you get a different confusion matrix? [If not, re-write it again]. Ask yourself -- how is it possible that you get a different confusion matrix for different runs?! 
 ```
 
 `@solution`
@@ -296,7 +298,10 @@ cnfm(y_test, y_pred)
 
 `@sct`
 ```{python}
-
+Ex().check_function("sklearn.metrics.confusion_matrix").multi(
+	check_args("y_true").has_equal_value(),
+    check_args("y_pred").has_equal_value()
+)
 ```
 
 ---
