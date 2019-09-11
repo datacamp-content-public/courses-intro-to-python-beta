@@ -450,15 +450,15 @@ smstat(df.sepal_width).ttest_mean(3)
 smstat(df.sepal_length).ttest_mean(5.6, alternative = "larger")
 
 # [DIY] Perform the t-test on sepal length with the mean being equal to 5.6 and the alternative hypothesis: the mean of sepal length being smaller than 5.6
-smstat(df.sepal_width).ttest_mean(3, alternative = "smaller")
+smstat(df.sepal_width).ttest_mean(5.6, alternative = "smaller")
 ```
 
 `@sct`
 ```{python}
-Ex().check_function("scipy.stats.ttest_1samp", 1).multi(
-  check_args("a").has_equal_value(),
-  check_args("popmean").has_equal_value()
-)
+Ex().check_function("statsmodels.stats.weightstats.DescrStatsW.ttest_mean", 0).has_equal_value()
+Ex().check_function("statsmodels.stats.weightstats.DescrStatsW.ttest_mean", 1).has_equal_value()
+Ex().check_function("statsmodels.stats.weightstats.DescrStatsW.ttest_mean", 2).has_equal_value()
+Ex().check_function("statsmodels.stats.weightstats.DescrStatsW.ttest_mean", 3).has_equal_value()
 success_msg("Good Job!")
 ```
 
