@@ -393,7 +393,7 @@ The most widespread of such models are Poisson models. The syntax of this model 
 `@instructions`
 - Compare the output of the two models on the right (both modeling gear by use of mpg): the standard linear regression and the Poisson regression.
 - Notice that Poisson regression does not have R-squared statistics.
-- Run `help(statsmodels.discrete.discrete_mdel.Poisson)` and study the displayed documentation carefully.
+- Run `help(psn)` and study the displayed documentation carefully.
 
 `@hint`
 
