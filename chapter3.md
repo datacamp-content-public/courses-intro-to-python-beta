@@ -1,6 +1,6 @@
 ---
 title: Testing
-description: 'Hyphotesis testin with Python'
+description: 'Hyphotesis testing with Python'
 ---
 
 ## Introduction
